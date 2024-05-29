@@ -21,6 +21,5 @@ class Project{
 let addProjectButton = document.querySelector('.icon');
 addProjectButton.addEventListener('click', () =>{
     let item = new Project();
-    domChanger.addProject();
+    domChanger.projectForm();
 });
-

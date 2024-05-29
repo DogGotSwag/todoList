@@ -36,12 +36,12 @@ body{
     background-color: var(--blue);
     box-shadow: 0px 1px 5px 2px var(--shadow);
     padding: 10px;
+    position: relative;
 
     display: grid;
     gap: 8px;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr;
-
 }
 
 .leftSideHeader{

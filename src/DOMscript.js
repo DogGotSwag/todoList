@@ -11,7 +11,21 @@ let DOM_Module = ( function(){
         projectArea.appendChild(li);
 
     }
-    return {addProject};
+
+    let leftSide = document.querySelector('.left')
+    let projectForm =() => {
+        let formContainer = document.createElement('div');
+        formContainer.innerText = 'hello';
+        formContainer.style.cssText = `
+            background-color: blue;
+            position: absolute;
+            width: 90%; 
+        `;
+        leftSide.appendChild(formContainer);
+
+
+    }
+    return {addProject, projectForm};
 }    
 )();
 
