@@ -35,10 +35,42 @@ body{
     border-radius: var(--borderRadius) 0 0 var(--borderRadius);
     background-color: var(--blue);
     box-shadow: 0px 1px 5px 2px var(--shadow);
+    padding: 10px;
+
+    display: grid;
+    gap: 8px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr;
+
 }
 .right{
     border-radius: 0 var(--borderRadius) var(--borderRadius) 0;
     background-color: var(--yellow);
     box-shadow: 1px 1px 5px 2px var(--shadow);
-
 }
+
+.left h2 {
+    margin-left: 8px;
+}
+
+.left .projectsArea{
+    border-radius: var(--borderRadius);
+    border: 2px solid rgb(169, 169, 169);
+    padding: 8px;
+}
+
+.projectsArea .project{
+    list-style: none;
+    background-color: var(--yellow);
+    border-radius: 6px;
+    border: 2px solid rgb(169, 169, 169);
+    height: 29px;
+
+    display: flex;
+    align-items: center;
+    padding-left: 5px;
+
+    position: relative;
+}
+
+
