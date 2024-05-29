@@ -48,6 +48,9 @@ body{
     background-color: var(--yellow);
     box-shadow: 1px 1px 5px 2px var(--shadow);
 }
+.leftSideHeader{
+    position: relative;
+}
 
 .left h2 {
     margin-left: 8px;
@@ -74,3 +77,11 @@ body{
 }
 
 
+.icon{
+    width: 30px;
+    position:absolute;
+    top: 0px;
+    right: 8px;
+    color: blue;
+    cursor: pointer;
+}
