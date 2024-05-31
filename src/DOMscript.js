@@ -12,7 +12,6 @@ let DOM_Module = ( function(){
         projectArea.appendChild(li);
 
     }
-
     let leftSide = document.querySelector('.left')
     let projectForm =() => {
         let formContainer = document.createElement('div');
@@ -43,7 +42,16 @@ let DOM_Module = ( function(){
 
         leftSide.appendChild(formContainer);
 
+        cancel.addEventListener('click' , () => {
+            removeProjectForm();
+        });
 
+
+    }
+
+    let removeProjectForm = () => {
+        let form = document.querySelector(".formContainer");
+        leftSide.removeChild(form);
     }
     return {addProject, projectForm};
 }    
