@@ -42,6 +42,11 @@ let DOM_Module = ( function(){
 
         leftSide.appendChild(formContainer);
 
+        button.addEventListener( 'click', () => {
+            addProject(input.value);
+            removeProjectForm();
+        });
+
         cancel.addEventListener('click' , () => {
             removeProjectForm();
         });
