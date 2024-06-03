@@ -41,6 +41,12 @@ addProjectButton.addEventListener('click', () =>{
 
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1]);
+            event.stopPropagation();
+        });
+
+        let project = document.querySelector( `.project._${projectIndex}` );
+        project.addEventListener("click", (event) => {
+            
         });
     });
 
