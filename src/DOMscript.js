@@ -72,7 +72,18 @@ let DOM_Module = ( function( index ){
         }
     };
 
-    return {addProject, projectForm, removeProjectForm, removeProject};
+
+    let updateRightSide = ( project ) =>{
+        updateRightHeader( project.title );
+    };
+
+    let updateRightHeader = ( text ) => {
+        let header = document.querySelector(".rightSideHeader h2");
+        header.innerText = `Todos from project : ${text}`;
+    }
+
+
+    return {addProject, projectForm, removeProjectForm, removeProject,updateRightSide};
 }    
 )();
 

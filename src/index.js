@@ -56,9 +56,9 @@ addProjectButton.addEventListener('click', () =>{
             else{
                 target = event.target.parentNode;
             }
-
             let projectIndex = target.classList[1].split("")[1];
-            console.log(projectIndex);
+            domChanger.updateRightSide( projectList[projectIndex] );
+
         });
     });
 
@@ -67,3 +67,40 @@ addProjectButton.addEventListener('click', () =>{
         domChanger.removeProjectForm();
     });
 });
+
+
+for (let index = 0; index < 5; index++) {
+    let projectName = "project"+index;
+    let projectIndex = projectList.length;
+    let newProject = new Project( projectName );
+    projectList.push(newProject);
+    domChanger.addProject( projectName, index);
+
+    let xButton = document.querySelector( `.project._${projectIndex} img` );
+        xButton.addEventListener("click", (event) => {
+            let classes = event.target.parentNode.classList;
+            let index = classes[1].split("")[1];
+
+            projectList.splice( index, 1);
+            domChanger.removeProject(classes[1]);
+            event.stopPropagation();
+        });
+
+        let project = document.querySelector( `.project._${projectIndex}` );
+        
+        project.addEventListener("click", (event) => {
+            let type = event.target.nodeName;
+            let target;
+
+            if( type == "LI" ){
+                target = event.target;
+            }
+            else{
+                target = event.target.parentNode;
+            }
+
+            let projectIndex = target.classList[1].split("")[1];
+            
+            domChanger.updateRightSide( projectList[projectIndex] );
+        });
+}
