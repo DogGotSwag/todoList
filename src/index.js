@@ -45,8 +45,20 @@ addProjectButton.addEventListener('click', () =>{
         });
 
         let project = document.querySelector( `.project._${projectIndex}` );
+        
         project.addEventListener("click", (event) => {
-            
+            let type = event.target.nodeName;
+            let target;
+
+            if( type == "LI" ){
+                target = event.target;
+            }
+            else{
+                target = event.target.parentNode;
+            }
+
+            let projectIndex = target.classList[1].split("")[1];
+            console.log(projectIndex);
         });
     });
 
