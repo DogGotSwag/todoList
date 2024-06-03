@@ -1,9 +1,10 @@
 import './style.css';
-let DOM_Module = ( function(){
+let DOM_Module = ( function( index ){
     let projectArea = document.querySelector('.projectsArea');
-    let addProject = ( insideText) =>{
+    let addProject = ( insideText, index) =>{
         let li = document.createElement('li');
         li.classList.add('project');
+        li.classList.add( index );
 
         let p = document.createElement('p');
         p.innerText = insideText;
@@ -27,6 +28,7 @@ let DOM_Module = ( function(){
         input.classList.add("projectInput");
         button.classList.add("projectButton");
         cancel.classList.add("projectButton");
+        cancel.classList.add("cancelButton");
 
 
         p.innerText = "Project Name";

@@ -16,6 +16,7 @@ class Project{
     }
 }
 
+let projectList = []; 
 
 let addProjectButton = document.querySelector('.icon');
 addProjectButton.addEventListener('click', () =>{
@@ -25,10 +26,17 @@ addProjectButton.addEventListener('click', () =>{
     let button = document.querySelector(".projectButton");
     let input = document.querySelector(".projectInput");
     button.addEventListener( 'click', () => {
-        domChanger.addProject(input.value);
+        let projectName = input.value;
+        let projectIndex = projectList.length;
+
+        let newProject = new Project( projectName );
+        projectList.push(newProject);
+        domChanger.addProject( projectName, projectIndex);
         domChanger.removeProjectForm();
+
     });
 
+    let cancel = document.querySelector(".cancelButton");
     cancel.addEventListener('click' , () => {
         domChanger.removeProjectForm();
     });
