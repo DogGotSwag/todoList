@@ -18,8 +18,9 @@ let DOM_Module = ( function( index ){
         li.appendChild(x);
         projectArea.appendChild(li);
 
-    }
-    let leftSide = document.querySelector('.left')
+    };
+
+    let leftSide = document.querySelector('.left');
     let projectForm =() => {
         let formContainer = document.createElement('div');
         formContainer.classList.add("formContainer");
@@ -49,14 +50,29 @@ let DOM_Module = ( function( index ){
         formContainer.appendChild(cancel);
 
         leftSide.appendChild(formContainer);
-    }
+    };
 
     let removeProjectForm = () => {
         let form = document.querySelector(".formContainer");
         leftSide.removeChild(form);
-    }
+    };
 
-    return {addProject, projectForm, removeProjectForm};
+    let removeProject = (index) => {
+        let element = document.querySelector(`.project.${index}`);
+        projectArea.removeChild(element);
+
+        let alltodos = projectArea.firstElementChild;
+        let key = alltodos.nextElementSibling;
+
+        let newIndex = 0;
+        while( key != null){
+            key.className = `project _${newIndex}`;
+            newIndex++;
+            key = key.nextElementSibling;
+        }
+    };
+
+    return {addProject, projectForm, removeProjectForm, removeProject};
 }    
 )();
 
