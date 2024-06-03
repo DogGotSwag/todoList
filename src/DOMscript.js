@@ -5,7 +5,7 @@ let DOM_Module = ( function( index ){
     let addProject = ( insideText, index) =>{
         let li = document.createElement('li');
         li.classList.add('project');
-        li.classList.add( index );
+        li.classList.add( "_"+index );
 
         let p = document.createElement('p');
         p.innerText = insideText;

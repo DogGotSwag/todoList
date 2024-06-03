@@ -34,6 +34,10 @@ addProjectButton.addEventListener('click', () =>{
         domChanger.addProject( projectName, projectIndex);
         domChanger.removeProjectForm();
 
+        let xButton = document.querySelector( `.project._${projectIndex} img` );
+        xButton.addEventListener("click", () => {
+            alert("Hello");
+        });
     });
 
     let cancel = document.querySelector(".cancelButton");
