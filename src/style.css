@@ -123,11 +123,17 @@ body{
     display: flex;
     align-items: center;
     padding: 1px 6px;
-    position: relative;
+}
+
+.removeIcon{
+    width: 18px;
+    border: 2px solid black;
+    border-radius: 15%;
+    margin-left: 4px;
 }
 
 
-.icon{
+.iconAddProject{
     width: 30px;
     position:absolute;
     top: 0px;

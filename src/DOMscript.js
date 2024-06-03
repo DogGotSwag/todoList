@@ -1,4 +1,5 @@
 import './style.css';
+import xImg from '../img/close-thick.svg';
 let DOM_Module = ( function( index ){
     let projectArea = document.querySelector('.projectsArea');
     let addProject = ( insideText, index) =>{
@@ -9,7 +10,12 @@ let DOM_Module = ( function( index ){
         let p = document.createElement('p');
         p.innerText = insideText;
 
+        let x = document.createElement('img');
+        x.classList = "removeIcon";
+        x.src = xImg;
+
         li.appendChild(p);
+        li.appendChild(x);
         projectArea.appendChild(li);
 
     }
