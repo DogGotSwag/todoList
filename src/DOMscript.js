@@ -41,24 +41,14 @@ let DOM_Module = ( function(){
         formContainer.appendChild(cancel);
 
         leftSide.appendChild(formContainer);
-
-        button.addEventListener( 'click', () => {
-            addProject(input.value);
-            removeProjectForm();
-        });
-
-        cancel.addEventListener('click' , () => {
-            removeProjectForm();
-        });
-
-
     }
 
     let removeProjectForm = () => {
         let form = document.querySelector(".formContainer");
         leftSide.removeChild(form);
     }
-    return {addProject, projectForm};
+
+    return {addProject, projectForm, removeProjectForm};
 }    
 )();
 

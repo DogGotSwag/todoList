@@ -1,6 +1,5 @@
 import './style.css';
 import domChanger from './DOMscript';
-
 class TodoItem{
     constructor( title, description, dueDate, priority){
         this.title = title;
@@ -20,6 +19,17 @@ class Project{
 
 let addProjectButton = document.querySelector('.icon');
 addProjectButton.addEventListener('click', () =>{
-    let item = new Project();
+
     domChanger.projectForm();
+
+    let button = document.querySelector(".projectButton");
+    let input = document.querySelector(".projectInput");
+    button.addEventListener( 'click', () => {
+        domChanger.addProject(input.value);
+        domChanger.removeProjectForm();
+    });
+
+    cancel.addEventListener('click' , () => {
+        domChanger.removeProjectForm();
+    });
 });
