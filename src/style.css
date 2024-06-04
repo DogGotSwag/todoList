@@ -180,6 +180,23 @@ body{
     cursor: pointer;
 }
 
+.todoForm{
+    position: absolute;
+    width: 300px;
+    height: 150px;
+    background-color: var(--blue);
+    border-radius: var(--borderRadius);
+    bottom: 10px;
+    right: 10px;
+    border: 2px solid rgb(118, 116, 116);
+    padding: 6px;
+}
+
+.todoformHeader{
+    text-align: center;
+    font-size: 18px;
+    border-bottom: 1px solid rgb(118, 116, 116);
+}
 
 /* end right side */
 

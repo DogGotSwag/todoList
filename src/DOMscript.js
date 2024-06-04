@@ -89,11 +89,12 @@ let DOM_Module = ( function( index ){
     let updateToDoSection = ( todoList ) => {
 
     };
+    let right = document.querySelector('.right');
 
     let addTodoButton = () => {
+        
         let check = document.querySelector(".addTodoIcon");
         if( check == null){
-            let right = document.querySelector('.right');
             let addTodo = document.createElement('img');
             addTodo.classList = "addTodoIcon";
             addTodo.src = addTodoIcon;
@@ -101,20 +102,26 @@ let DOM_Module = ( function( index ){
             right.appendChild( addTodo);
         }
         else{
-            let right = document.querySelector('.right');
             right.removeChild(check);
             addTodoButton();
         }
         
     }
 
-    let addTodForm = () => {
-        console.log("Hello");
+    let addTodoForm = () => {
+        let div = document.createElement('div');
+        div.classList.add('todoForm');
+        right.appendChild(div);
+
+        let header = document.createElement('h5');
+        header.classList.add('todoformHeader');
+        header.innerText = "Todo";
+        div.appendChild(header);
     }
 
 
     return {addProject, projectForm, removeProjectForm, removeProject,updateRightSide,
-        addTodForm
+        addTodoForm
     };
 }    
 )();
