@@ -102,5 +102,14 @@ for (let index = 0; index < 5; index++) {
             let projectIndex = target.classList[1].split("")[1];
             
             domChanger.updateRightSide( projectList[projectIndex] );
+
+
+            let addToButton = document.querySelector(".addTodoIcon");
+
+           
+
+            addToButton.addEventListener( 'click', () =>{
+                console.log("helllo");
+            });
         });
 }

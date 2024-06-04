@@ -91,12 +91,21 @@ let DOM_Module = ( function( index ){
     };
 
     let addTodoButton = () => {
-        let right = document.querySelector('.right');
-        let addTodo = document.createElement('img');
-        addTodo.classList = "addTodoIcon";
-        addTodo.src = addTodoIcon;
+        let check = document.querySelector(".addTodoIcon");
+        if( check == null){
+            let right = document.querySelector('.right');
+            let addTodo = document.createElement('img');
+            addTodo.classList = "addTodoIcon";
+            addTodo.src = addTodoIcon;
 
-        right.appendChild( addTodo);
+            right.appendChild( addTodo);
+        }
+        else{
+            let right = document.querySelector('.right');
+            right.removeChild(check);
+            addTodoButton();
+        }
+        
     }
 
 
