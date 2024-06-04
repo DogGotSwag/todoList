@@ -1,5 +1,7 @@
 import './style.css';
 import xImg from '../img/close-thick.svg';
+import addTodoIcon from '../img/plus-box-outline.svg';
+
 let DOM_Module = ( function( index ){
     let projectArea = document.querySelector('.projectsArea');
     let addProject = ( insideText, index) =>{
@@ -75,11 +77,26 @@ let DOM_Module = ( function( index ){
 
     let updateRightSide = ( project ) =>{
         updateRightHeader( project.title );
+        updateToDoSection(project.todoList);
+        addTodoButton();
     };
 
     let updateRightHeader = ( text ) => {
         let header = document.querySelector(".rightSideHeader h2");
         header.innerText = `Todos from project : ${text}`;
+    };
+
+    let updateToDoSection = ( todoList ) => {
+
+    };
+
+    let addTodoButton = () => {
+        let right = document.querySelector('.right');
+        let addTodo = document.createElement('img');
+        addTodo.classList = "addTodoIcon";
+        addTodo.src = addTodoIcon;
+
+        right.appendChild( addTodo);
     }
 
 
