@@ -116,6 +116,25 @@ let DOM_Module = ( function( index ){
         let header = document.createElement('h5');
         header.classList.add('todoformHeader');
         header.innerText = "Todo";
+
+        let list = document.createElement('ul');
+
+        let li = document.createElement('li');
+        let labelTitle = document.createElement('label');
+        let inputTitle = document.createElement('input');
+
+        let liTwo = document.createElement('li');
+        let labelDue = document.createElement('label');
+        let inputDue = document.createElement('input');
+
+        let liThree = document.createElement('li');
+        let labelPriority = document.createElement('label');
+        let inputPriority = document.createElement('input');
+
+        let liFour = document.createElement('li');
+        let labelDes = document.createElement('label');
+        let inputDes = document.createElement('textArea');
+
         div.appendChild(header);
     }
 
