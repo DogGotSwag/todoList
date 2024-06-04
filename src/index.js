@@ -61,7 +61,7 @@ addProjectButton.addEventListener('click', () =>{
 
             let addToButton = document.querySelector(".addTodoIcon");
             addToButton.addEventListener( 'click', () =>{
-                console.log("helllo");
+                domChanger.addTodForm();
             });
         });
     });

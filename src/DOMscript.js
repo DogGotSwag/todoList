@@ -108,8 +108,14 @@ let DOM_Module = ( function( index ){
         
     }
 
+    let addTodForm = () => {
+        console.log("Hello");
+    }
 
-    return {addProject, projectForm, removeProjectForm, removeProject,updateRightSide};
+
+    return {addProject, projectForm, removeProjectForm, removeProject,updateRightSide,
+        addTodForm
+    };
 }    
 )();
 
