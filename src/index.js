@@ -81,8 +81,5 @@ addProjectButton.addEventListener('click', () =>{
         });
     });
 
-    let cancel = document.querySelector(".cancelButton");
-    cancel.addEventListener('click' , () => {
-        domChanger.removeProjectForm();
-    });
+    
 });

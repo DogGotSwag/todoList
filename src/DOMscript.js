@@ -52,6 +52,10 @@ let DOM_Module = (function (index) {
         formContainer.appendChild(cancel);
 
         leftSide.appendChild(formContainer);
+
+        cancel.addEventListener('click' , () => {
+            domChanger.removeProjectForm();
+        });
     };
 
     let removeProjectForm = () => {
