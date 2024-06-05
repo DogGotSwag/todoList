@@ -2,12 +2,12 @@ import './style.css';
 import xImg from '../img/close-thick.svg';
 import addTodoIcon from '../img/plus-box-outline.svg';
 
-let DOM_Module = ( function( index ){
+let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
-    let addProject = ( insideText, index) =>{
+    let addProject = (insideText, index) => {
         let li = document.createElement('li');
         li.classList.add('project');
-        li.classList.add( "_"+index );
+        li.classList.add("_" + index);
 
         let p = document.createElement('p');
         p.innerText = insideText;
@@ -23,7 +23,7 @@ let DOM_Module = ( function( index ){
     };
 
     let leftSide = document.querySelector('.left');
-    let projectForm =() => {
+    let projectForm = () => {
         let formContainer = document.createElement('div');
         formContainer.classList.add("formContainer");
 
@@ -67,7 +67,7 @@ let DOM_Module = ( function( index ){
         let key = alltodos.nextElementSibling;
 
         let newIndex = 0;
-        while( key != null){
+        while (key != null) {
             key.className = `project _${newIndex}`;
             newIndex++;
             key = key.nextElementSibling;
@@ -75,41 +75,41 @@ let DOM_Module = ( function( index ){
     };
 
 
-    let updateRightSide = ( project ) =>{
-        updateRightHeader( project.title );
+    let updateRightSide = (project) => {
+        updateRightHeader(project.title);
         updateToDoSection(project.todoList);
         addTodoButton();
     };
 
-    let updateRightHeader = ( text ) => {
+    let updateRightHeader = (text) => {
         let header = document.querySelector(".rightSideHeader h2");
         header.innerText = `Todos from project : ${text}`;
     };
 
-    let updateToDoSection = ( todoList ) => {
+    let updateToDoSection = (todoList) => {
 
     };
     let right = document.querySelector('.right');
 
     let addTodoButton = () => {
-        
+
         let check = document.querySelector(".addTodoIcon");
-        if( check == null){
+        if (check == null) {
             let addTodo = document.createElement('img');
             addTodo.classList = "addTodoIcon";
             addTodo.src = addTodoIcon;
 
-            right.appendChild( addTodo);
+            right.appendChild(addTodo);
         }
-        else{
+        else {
             right.removeChild(check);
             addTodoButton();
         }
-        
+
     }
 
     let addTodoForm = () => {
-        let div = document.createElement('div');
+        let div = document.createElement('form');
         div.classList.add('todoForm');
         right.appendChild(div);
 
@@ -121,28 +121,47 @@ let DOM_Module = ( function( index ){
 
         let li = document.createElement('li');
         let labelTitle = document.createElement('label');
+        labelTitle.innerText = "Title : "
         let inputTitle = document.createElement('input');
+        li.appendChild(labelTitle);
+        li.appendChild(inputTitle);
 
         let liTwo = document.createElement('li');
         let labelDue = document.createElement('label');
+        labelDue.innerText = "Due Date : "
         let inputDue = document.createElement('input');
+        liTwo.appendChild(labelDue);
+        liTwo.appendChild(inputDue);
+
 
         let liThree = document.createElement('li');
         let labelPriority = document.createElement('label');
+        labelPriority.innerText = "Priorty";
         let inputPriority = document.createElement('input');
+        liThree.appendChild(labelPriority);
+        liThree.appendChild(inputPriority);
 
         let liFour = document.createElement('li');
         let labelDes = document.createElement('label');
+        labelDes.innerText = "Description"
         let inputDes = document.createElement('textArea');
+        liFour.appendChild(labelDes);
+        liFour.appendChild(inputDes);
+
+        list.appendChild(li);
+        list.appendChild(liTwo);
+        list.appendChild(liThree);
 
         div.appendChild(header);
+        div.appendChild(list);
     }
 
 
-    return {addProject, projectForm, removeProjectForm, removeProject,updateRightSide,
+    return {
+        addProject, projectForm, removeProjectForm, removeProject, updateRightSide,
         addTodoForm
     };
-}    
+}
 )();
 
 export default DOM_Module;

@@ -10,6 +10,17 @@ html, body{
     box-sizing: border-box;
 }
 
+li{
+    list-style: none;
+}
+
+label, input, button{
+    appearance: none;
+    border: none;
+    outline: none;
+    background-color: none;
+}
+
 
 body{
     display: flex;
@@ -111,7 +122,6 @@ body{
 }
 
 .projectsArea .project{
-    list-style: none;
     background-color: var(--yellow);
     border-radius: 6px;
     height: 29px;
@@ -192,10 +202,22 @@ body{
     padding: 6px;
 }
 
+.todoForm li{
+    margin-bottom: 3px;
+    height: 20px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 80px 1fr;
+    grid-template-rows: 20px;
+}
+
+
+
 .todoformHeader{
     text-align: center;
     font-size: 18px;
     border-bottom: 1px solid rgb(118, 116, 116);
+    margin-bottom: 6px;
 }
 
 /* end right side */
