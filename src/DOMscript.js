@@ -130,6 +130,7 @@ let DOM_Module = (function (index) {
         let labelDue = document.createElement('label');
         labelDue.innerText = "Due Date : "
         let inputDue = document.createElement('input');
+        inputDue.setAttribute('type', 'date');
         liTwo.appendChild(labelDue);
         liTwo.appendChild(inputDue);
 
@@ -151,15 +152,29 @@ let DOM_Module = (function (index) {
         liThree.appendChild(inputPriority);
 
         let liFour = document.createElement('li');
+        liFour.classList.add("lastLi");
         let labelDes = document.createElement('label');
         labelDes.innerText = "Description"
         let inputDes = document.createElement('textArea');
         liFour.appendChild(labelDes);
         liFour.appendChild(inputDes);
 
+        let addButton = document.createElement('button');
+        addButton.setAttribute('type','button');
+        addButton.classList.add('todoFormButton')
+        addButton.innerText = 'Add';
+
+        let cancelButton = document.createElement('button');
+        cancelButton.setAttribute('type','button');
+        cancelButton.classList.add('todoFormButton')
+        cancelButton.innerText = 'Cancel';
+
         list.appendChild(li);
         list.appendChild(liTwo);
         list.appendChild(liThree);
+        list.appendChild(liFour);
+        list.appendChild(addButton);
+        list.appendChild(cancelButton);
 
         div.appendChild(header);
         div.appendChild(list);

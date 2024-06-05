@@ -15,7 +15,7 @@ li{
 }
 
 label, input, button,
-select{
+select,textarea{
     appearance: none;
     border: none;
     outline: none;
@@ -195,7 +195,7 @@ body{
 .todoForm{
     position: absolute;
     width: 300px;
-    height: 150px;
+    height: 330px;
     background-color: var(--blue);
     border-radius: var(--borderRadius);
     bottom: 10px;
@@ -213,11 +213,16 @@ body{
     grid-template-rows: 20px;
 }
 
-.todoForm input, select{
+.todoForm input, select, textarea{
     border: 2px solid rgb(118, 116, 116);
     padding: 2px 10px;
     border-radius: 3px;
     height: 25px;
+}
+
+textarea{
+    height: 152px;
+    padding: 4px;
 }
 
 .todoForm input:focus{
@@ -231,6 +236,26 @@ body{
     font-size: 18px;
     border-bottom: 1px solid rgb(118, 116, 116);
     margin-bottom: 6px;
+}
+
+.todoForm .lastLi{
+    height: 155px;
+}
+
+.todoForm button:first-of-type{
+    margin-left: 10px;
+}
+
+.todoFormButton{
+    width: 50px;
+    height: 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+}
+
+.todoFormButton:hover{
+    background-color: rgb(168, 168, 168);
 }
 
 /* end right side */
