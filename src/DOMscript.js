@@ -197,10 +197,23 @@ let DOM_Module = (function (index) {
         right.removeChild(form);
     }
 
+    let removeTodoFormButton = () => {
+        let checkOne = document.querySelector('.addTodoIcon');
+        let checkTwo = document.querySelector('.todoForm');
+
+        if( checkOne != null ){
+            right.removeChild(checkOne);
+        }
+        if( checkTwo != null ){
+            removeTodoForm();
+        }
+        
+    }
+
 
     return {
         addProject, projectForm, removeProjectForm, removeProject, updateRightSide,
-        addTodoForm, removeTodoForm
+        addTodoForm, removeTodoForm, removeTodoFormButton
     };
 }
 )();
