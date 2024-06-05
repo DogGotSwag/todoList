@@ -121,14 +121,14 @@ let DOM_Module = (function (index) {
 
         let li = document.createElement('li');
         let labelTitle = document.createElement('label');
-        labelTitle.innerText = "Title : "
+        labelTitle.innerText = "Title"
         let inputTitle = document.createElement('input');
         li.appendChild(labelTitle);
         li.appendChild(inputTitle);
 
         let liTwo = document.createElement('li');
         let labelDue = document.createElement('label');
-        labelDue.innerText = "Due Date : "
+        labelDue.innerText = "Due Date"
         let inputDue = document.createElement('input');
         inputDue.setAttribute('type', 'date');
         liTwo.appendChild(labelDue);
@@ -162,11 +162,13 @@ let DOM_Module = (function (index) {
         let addButton = document.createElement('button');
         addButton.setAttribute('type','button');
         addButton.classList.add('todoFormButton')
+        addButton.classList.add('todoAddButton')
         addButton.innerText = 'Add';
 
         let cancelButton = document.createElement('button');
         cancelButton.setAttribute('type','button');
         cancelButton.classList.add('todoFormButton')
+        cancelButton.classList.add('todoCancelButton')
         cancelButton.innerText = 'Cancel';
 
         list.appendChild(li);
@@ -178,6 +180,15 @@ let DOM_Module = (function (index) {
 
         div.appendChild(header);
         div.appendChild(list);
+
+        cancelButton.addEventListener( 'click' , () =>{
+            removeTodoForm();
+        });
+    }
+
+    let removeTodoForm = () =>{
+        let form = document.querySelector('.todoForm');
+        right.removeChild(form);
     }
 
 
