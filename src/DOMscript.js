@@ -123,6 +123,7 @@ let DOM_Module = (function (index) {
         let labelTitle = document.createElement('label');
         labelTitle.innerText = "Title"
         let inputTitle = document.createElement('input');
+        inputTitle.classList.add('inputTitle');
         li.appendChild(labelTitle);
         li.appendChild(inputTitle);
 
@@ -130,6 +131,7 @@ let DOM_Module = (function (index) {
         let labelDue = document.createElement('label');
         labelDue.innerText = "Due Date"
         let inputDue = document.createElement('input');
+        inputDue.classList.add('dateInput');
         inputDue.setAttribute('type', 'date');
         liTwo.appendChild(labelDue);
         liTwo.appendChild(inputDue);
@@ -194,7 +196,7 @@ let DOM_Module = (function (index) {
 
     return {
         addProject, projectForm, removeProjectForm, removeProject, updateRightSide,
-        addTodoForm
+        addTodoForm, removeTodoForm
     };
 }
 )();

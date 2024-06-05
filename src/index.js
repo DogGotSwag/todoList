@@ -62,6 +62,21 @@ addProjectButton.addEventListener('click', () =>{
             let addToButton = document.querySelector(".addTodoIcon");
             addToButton.addEventListener( 'click', () =>{
                 domChanger.addTodoForm();
+                let add = document.querySelector('.todoAddButton');
+                add.addEventListener('click', () =>{
+                    let title = document.querySelector('.inputTitle');
+                    let due = document.querySelector(".dateInput");
+                    let select = document.querySelector(".todoForm select");
+                    let description = document.querySelector("textArea");
+
+                    let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
+                    projectList[projectIndex].todoList.push(newTodo);
+
+                    domChanger.removeTodoForm();
+                    console.log(projectList);
+                });
+
+                
             });
         });
     });
