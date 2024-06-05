@@ -137,7 +137,16 @@ let DOM_Module = (function (index) {
         let liThree = document.createElement('li');
         let labelPriority = document.createElement('label');
         labelPriority.innerText = "Priorty";
-        let inputPriority = document.createElement('input');
+        let inputPriority = document.createElement('select');
+
+        let selectOptions = ['low','medium', 'high'];
+
+        selectOptions.forEach( op => {
+            let option = document.createElement('option');
+            option.innerText = op;
+            inputPriority.appendChild(option);
+        });
+
         liThree.appendChild(labelPriority);
         liThree.appendChild(inputPriority);
 
