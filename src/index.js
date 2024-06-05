@@ -38,7 +38,7 @@ addProjectButton.addEventListener('click', () =>{
         xButton.addEventListener("click", (event) => {
             let classes = event.target.parentNode.classList;
             let index = classes[1].split("")[1];
-
+            domChanger.removeTodoFormButton();
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1]);
             event.stopPropagation();
