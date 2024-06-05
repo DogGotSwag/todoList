@@ -105,6 +105,7 @@ body{
     height: 26px;
     border-radius: 3px;
     cursor: pointer;
+    border: 2px solid black;
 }
 
 
@@ -204,13 +205,23 @@ body{
 
 .todoForm li{
     margin-bottom: 3px;
-    height: 20px;
+    height: 30px;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: 80px 1fr;
     grid-template-rows: 20px;
 }
 
+.todoForm input{
+    border: 2px solid rgb(118, 116, 116);
+    padding: 2px 10px;
+    border-radius: 3px;
+}
+
+.todoForm input:focus{
+    border: 2px solid black;
+    
+}
 
 
 .todoformHeader{
