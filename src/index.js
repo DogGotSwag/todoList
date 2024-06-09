@@ -86,5 +86,5 @@ addProjectButton.addEventListener('click', () =>{
 
 let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
-    domChanger.removeTodoFormButton();
+    domChanger.removeFormAndButton();
 });

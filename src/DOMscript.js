@@ -187,13 +187,11 @@ let DOM_Module = (function (index) {
         right.removeChild(form);
     }
 
-    let removeTodoFormButton = () => {
+    let removeFormAndButton = () => {
         let checkOne = document.querySelector('.addTodoIcon');
         let checkTwo = document.querySelector('.todoForm');
 
-        if( checkOne != null ){
-            right.removeChild(checkOne);
-        }
+        checkOne.classList.remove('active');
         if( checkTwo != null ){
             removeTodoForm();
         }
@@ -203,7 +201,7 @@ let DOM_Module = (function (index) {
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
-        addTodoForm, removeTodoForm, removeTodoFormButton
+        addTodoForm, removeTodoForm, removeFormAndButton
     };
 }
 )();
