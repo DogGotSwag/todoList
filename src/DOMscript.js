@@ -210,14 +210,9 @@ let DOM_Module = (function (index) {
         
     }
 
-    let displayTodos = ( object ) => {
-
-    };
-
-
     return {
         addProject, projectForm, removeProjectForm, 
-        removeProject, updateRightSide, displayTodos
+        removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton
     };
 }
