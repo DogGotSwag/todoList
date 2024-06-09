@@ -74,9 +74,9 @@ addProjectButton.addEventListener('click', () =>{
                     projectList[projectIndex].todoList.push(newTodo);
 
                     domChanger.removeTodoForm();
-                    console.log(projectList);
 
                     domChanger.updateRightSide( projectList[projectIndex] );
+                    
                 });
 
                 

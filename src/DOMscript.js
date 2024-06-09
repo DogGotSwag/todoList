@@ -91,7 +91,9 @@ let DOM_Module = (function (index) {
     };
 
     let updateToDoSection = (todoList) => {
-
+        todoList.forEach( key => {
+            console.log(key);
+        });
     };
     let right = document.querySelector('.right');
 
