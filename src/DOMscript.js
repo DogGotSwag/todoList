@@ -1,6 +1,5 @@
 import './style.css';
 import xImg from '../img/close-thick.svg';
-import addTodoIcon from '../img/plus-box-outline.svg';
 
 let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
@@ -98,19 +97,8 @@ let DOM_Module = (function (index) {
     let right = document.querySelector('.right');
 
     let addTodoButton = () => {
-
-        let check = document.querySelector(".addTodoIcon");
-        if (check == null) {
-            let addTodo = document.createElement('img');
-            addTodo.classList = "addTodoIcon";
-            addTodo.src = addTodoIcon;
-
-            right.appendChild(addTodo);
-        }
-        else {
-            right.removeChild(check);
-            addTodoButton();
-        }
+        let button = document.querySelector(".addTodoIcon");
+        button.classList.add('active');
 
     }
 
