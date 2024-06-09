@@ -211,13 +211,13 @@ let DOM_Module = (function (index) {
     }
 
     let displayTodos = ( object ) => {
-        
+
     };
 
 
     return {
         addProject, projectForm, removeProjectForm, 
-        removeProject, updateRightSide,
+        removeProject, updateRightSide, displayTodos
         addTodoForm, removeTodoForm, removeTodoFormButton
     };
 }
