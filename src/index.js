@@ -58,29 +58,29 @@ addProjectButton.addEventListener('click', () =>{
                 target = event.target.parentNode;
             }
             let projectIndex = target.classList[1].split("")[1];
-            domChanger.updateRightSide( projectList[projectIndex] );
+            // domChanger.updateRightSide( projectList[projectIndex] );
 
-            let addToButton = document.querySelector(".addTodoIcon");
-            addToButton.addEventListener( 'click', () =>{
-                domChanger.addTodoForm();
-                let add = document.querySelector('.todoAddButton');
-                add.addEventListener('click', () =>{
-                    let title = document.querySelector('.inputTitle');
-                    let due = document.querySelector(".dateInput");
-                    let select = document.querySelector(".todoForm select");
-                    let description = document.querySelector("textArea");
+            // let addToButton = document.querySelector(".addTodoIcon");
+            // addToButton.addEventListener( 'click', () =>{
+            //     domChanger.addTodoForm();
+            //     let add = document.querySelector('.todoAddButton');
+            //     add.addEventListener('click', () =>{
+            //         let title = document.querySelector('.inputTitle');
+            //         let due = document.querySelector(".dateInput");
+            //         let select = document.querySelector(".todoForm select");
+            //         let description = document.querySelector("textArea");
 
-                    let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
-                    projectList[projectIndex].todoList.push(newTodo);
+            //         let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
+            //         projectList[projectIndex].todoList.push(newTodo);
 
-                    domChanger.removeTodoForm();
+            //         domChanger.removeTodoForm();
 
-                    domChanger.updateRightSide( projectList[projectIndex] );
+            //         domChanger.updateRightSide( projectList[projectIndex] );
                     
-                });
+            //     });
 
                 
-            });
+            // });
         });
     });
 });
