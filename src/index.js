@@ -16,7 +16,8 @@ class Project{
     }
 }
 
-let projectList = []; 
+let projectList = [];
+let currentProjectIndex;
 
 let addProjectButton = document.querySelector('.iconAddProject');
 addProjectButton.addEventListener('click', () =>{
@@ -44,7 +45,7 @@ addProjectButton.addEventListener('click', () =>{
             event.stopPropagation();
         });
 
-        let project = document.querySelector( `.project._${projectIndex}` );
+        let project = document.querySelector( `.project._${newProjectIndex}` );
         
         project.addEventListener("click", (event) => {
             let type = event.target.nodeName;
@@ -56,30 +57,10 @@ addProjectButton.addEventListener('click', () =>{
             else{
                 target = event.target.parentNode;
             }
-            let projectIndex = target.classList[1].split("")[1];
-            domChanger.updateRightSide( projectList[projectIndex] );
-
-            // let addToButton = document.querySelector(".addTodoIcon");
-            // addToButton.addEventListener( 'click', () =>{
-            //     domChanger.addTodoForm();
-            //     let add = document.querySelector('.todoAddButton');
-            //     add.addEventListener('click', () =>{
-            //         let title = document.querySelector('.inputTitle');
-            //         let due = document.querySelector(".dateInput");
-            //         let select = document.querySelector(".todoForm select");
-            //         let description = document.querySelector("textArea");
-
-            //         let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
-            //         projectList[projectIndex].todoList.push(newTodo);
-
-            //         domChanger.removeTodoForm();
-
-            //         domChanger.updateRightSide( projectList[projectIndex] );
-                    
-            //     });
-
-                
-            // });
+            let currentProjectIndex = target.classList[1].split("")[1];
+            domChanger.updateRightSide( projectList[currentProjectIndex] );
+            console.log(currentProjectIndex);
+            
         });
     });
 });
@@ -88,3 +69,25 @@ let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
     domChanger.removeFormAndButton();
 });
+
+// let addToButton = document.querySelector(".addTodoIcon");
+//             addToButton.addEventListener( 'click', () =>{
+//                 domChanger.addTodoForm();
+//                 let add = document.querySelector('.todoAddButton');
+//                 add.addEventListener('click', () =>{
+//                     let title = document.querySelector('.inputTitle');
+//                     let due = document.querySelector(".dateInput");
+//                     let select = document.querySelector(".todoForm select");
+//                     let description = document.querySelector("textArea");
+
+//                     let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
+//                     projectList[projectIndex].todoList.push(newTodo);
+
+//                     domChanger.removeTodoForm();
+
+//                     domChanger.updateRightSide( projectList[projectIndex] );
+                    
+//                 });
+
+                
+//             });
