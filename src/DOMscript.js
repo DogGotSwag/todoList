@@ -1,5 +1,6 @@
 import './style.css';
 import xImg from '../img/close-thick.svg';
+import addTodoIcon from '../img/plus-box-outline.svg';
 
 let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
@@ -97,8 +98,9 @@ let DOM_Module = (function (index) {
     let right = document.querySelector('.right');
 
     let addTodoButton = () => {
-        let button = document.querySelector(".addTodoIcon");
-        button.classList.add('active');
+
+        let addTodoIcon = document.querySelector(".addTodoIcon");
+        addTodoIcon.classList.add('active');
 
     }
 
@@ -187,11 +189,12 @@ let DOM_Module = (function (index) {
         right.removeChild(form);
     }
 
-    let removeFormAndButton = () => {
-        let checkOne = document.querySelector('.addTodoIcon');
+    let removeTodoFormButton = () => {
+        let addTodoButton = document.querySelector('.addTodoIcon');
         let checkTwo = document.querySelector('.todoForm');
 
-        checkOne.classList.remove('active');
+        addTodoButton.classList.remove('active');
+
         if( checkTwo != null ){
             removeTodoForm();
         }
@@ -201,7 +204,7 @@ let DOM_Module = (function (index) {
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
-        addTodoForm, removeTodoForm, removeFormAndButton
+        addTodoForm, removeTodoForm, removeTodoFormButton
     };
 }
 )();

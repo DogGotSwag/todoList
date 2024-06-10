@@ -39,7 +39,10 @@ addProjectButton.addEventListener('click', () =>{
         xButton.addEventListener("click", (event) => {
             let classes = event.target.parentNode.classList;
             let index = classes[1].split("")[1];
-            domChanger.removeTodoFormButton();
+
+            if( index == currentProjectIndex ){
+                domChanger.removeTodoFormButton();
+            }
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1]);
             event.stopPropagation();
@@ -57,17 +60,15 @@ addProjectButton.addEventListener('click', () =>{
             else{
                 target = event.target.parentNode;
             }
-            let currentProjectIndex = target.classList[1].split("")[1];
-            domChanger.updateRightSide( projectList[currentProjectIndex] );
-            console.log(currentProjectIndex);
-            
+            currentProjectIndex = target.classList[1].split("")[1];
+            domChanger.updateRightSide( projectList[currentProjectIndex] );            
         });
     });
 });
 
 let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
-    domChanger.removeFormAndButton();
+    domChanger.removeTodoFormButton();
 });
 
 // let addToButton = document.querySelector(".addTodoIcon");
