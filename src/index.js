@@ -27,14 +27,14 @@ addProjectButton.addEventListener('click', () =>{
     let input = document.querySelector(".projectInput");
     button.addEventListener( 'click', () => {
         let projectName = input.value;
-        let projectIndex = projectList.length;
+        let newProjectIndex = projectList.length;
 
         let newProject = new Project( projectName );
         projectList.push(newProject);
-        domChanger.addProject( projectName, projectIndex);
+        domChanger.addProject( projectName, newProjectIndex);
         domChanger.removeProjectForm();
 
-        let xButton = document.querySelector( `.project._${projectIndex} img` );
+        let xButton = document.querySelector( `.project._${newProjectIndex} img` );
         xButton.addEventListener("click", (event) => {
             let classes = event.target.parentNode.classList;
             let index = classes[1].split("")[1];
