@@ -64,8 +64,17 @@ addProjectButton.addEventListener('click', () =>{
             else{
                 target = event.target.parentNode;
             }
-            currentProjectIndex = target.classList[1].split("")[1];
-            domChanger.updateRightSide( projectList[currentProjectIndex] );            
+
+            let clickedProjectIndex = target.classList[1].split("")[1];
+
+            if( clickedProjectIndex === currentProjectIndex){
+                ;
+            }
+            else{
+                currentProjectIndex = clickedProjectIndex;
+                domChanger.updateRightSide( projectList[currentProjectIndex] );   
+            }
+            
         });
     });
 });

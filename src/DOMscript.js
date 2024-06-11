@@ -89,13 +89,19 @@ let DOM_Module = (function (index) {
         let header = document.querySelector(".rightSideHeader h2");
         header.innerText = `Todos from project : ${text}`;
     };
+    let right = document.querySelector('.right');
 
     let updateToDoSection = (todoList) => {
+        let allTodosContainer = right.firstElementChild.nextElementSibling; 
+        allTodosContainer.innerHTML = "";
         todoList.forEach( key => {
-            console.log(key);
+            let div = document.createElement('div');
+            div.classList.add('todoContainer');
+            div.innerText = key.title;
+            
+            allTodosContainer.appendChild(div);
         });
     };
-    let right = document.querySelector('.right');
 
     let addTodoButton = () => {
 
