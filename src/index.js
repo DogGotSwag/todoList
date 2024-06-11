@@ -71,24 +71,23 @@ allTodoProject.addEventListener( 'click', () =>{
     domChanger.removeTodoFormButton();
 });
 
-// let addToButton = document.querySelector(".addTodoIcon");
-//             addToButton.addEventListener( 'click', () =>{
-//                 domChanger.addTodoForm();
-//                 let add = document.querySelector('.todoAddButton');
-//                 add.addEventListener('click', () =>{
-//                     let title = document.querySelector('.inputTitle');
-//                     let due = document.querySelector(".dateInput");
-//                     let select = document.querySelector(".todoForm select");
-//                     let description = document.querySelector("textArea");
+let addToButton = document.querySelector(".addTodoIcon");
+addToButton.addEventListener( 'click', () =>{
+    domChanger.addTodoForm();
+    let add = document.querySelector('.todoAddButton');
+    add.addEventListener('click', () =>{
+        let title = document.querySelector('.inputTitle');
+        let due = document.querySelector(".dateInput");
+        let select = document.querySelector(".todoForm select");
+        let description = document.querySelector("textArea");
 
-//                     let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
-//                     projectList[projectIndex].todoList.push(newTodo);
+        let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
+        projectList[currentProjectIndex].todoList.push(newTodo);
 
-//                     domChanger.removeTodoForm();
+        domChanger.removeTodoForm();
+        domChanger.updateRightSide( projectList[currentProjectIndex] );    
+        console.clear();
+        console.log(projectList);
 
-//                     domChanger.updateRightSide( projectList[projectIndex] );
-                    
-//                 });
-
-                
-//             });
+    });                
+});
