@@ -43,6 +43,10 @@ addProjectButton.addEventListener('click', () =>{
             if( index == currentProjectIndex ){
                 domChanger.removeTodoFormButton();
             }
+            else if( index < currentProjectIndex){
+                currentProjectIndex--;
+            }
+
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1]);
             event.stopPropagation();
@@ -86,8 +90,6 @@ addToButton.addEventListener( 'click', () =>{
 
         domChanger.removeTodoForm();
         domChanger.updateRightSide( projectList[currentProjectIndex] );    
-        console.clear();
-        console.log(projectList);
 
     });                
 });
