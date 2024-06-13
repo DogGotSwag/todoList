@@ -1,6 +1,5 @@
 import './style.css';
 import xImg from '../img/close-thick.svg';
-import addTodoIcon from '../img/plus-box-outline.svg';
 
 let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
@@ -94,13 +93,24 @@ let DOM_Module = (function (index) {
     let updateToDoSection = (todoList) => {
         let allTodosContainer = right.firstElementChild.nextElementSibling; 
         allTodosContainer.innerHTML = "";
+        let ul = document.createElement('ul');
         todoList.forEach( key => {
-            let div = document.createElement('div');
-            div.classList.add('todoContainer');
-            div.innerText = key.title;
-            
-            allTodosContainer.appendChild(div);
+            let li = document.createElement('li');
+
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.classList.add('checkBox');
+            let label = document.createElement('label');
+            label.innerText = key.title;
+
+            li.appendChild(checkbox);
+            li.appendChild(label);
+
+            ul.appendChild(li);
         });
+
+        allTodosContainer.appendChild(ul);
+
     };
 
     let addTodoButton = () => {

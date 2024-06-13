@@ -279,6 +279,11 @@ textarea{
     background-color: rgb(168, 168, 168);
 }
 
+.checkBox{
+    appearance: auto;
+    cursor: pointer;
+}
+
 
 
 /* end right side */
