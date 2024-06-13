@@ -94,16 +94,28 @@ let DOM_Module = (function (index) {
         let allTodosContainer = right.firstElementChild.nextElementSibling; 
         allTodosContainer.innerHTML = "";
         let ul = document.createElement('ul');
-        todoList.forEach( key => {
+        todoList.forEach( (key,index) => {
             let li = document.createElement('li');
+            li.classList.add('todoLi');
 
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
-            let label = document.createElement('label');
-            label.innerText = key.title;
+            checkbox.id = `todo_${index}`;
 
-            li.appendChild(checkbox);
+            let p = document.createElement('p');
+            p.innerText = key.title;
+            
+            let label = document.createElement('label');
+            label.classList.add('todoLabel');
+            label.setAttribute('for', `todo_${index}`);
+            label.setAttribute('name' ,`todo_${index}`);
+
+
+            label.appendChild(checkbox);
+            label.appendChild(p);
+            
+
             li.appendChild(label);
 
             ul.appendChild(li);

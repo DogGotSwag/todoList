@@ -10,6 +10,7 @@ html, body{
     box-sizing: border-box;
 }
 
+
 li{
     list-style: none;
 }
@@ -277,6 +278,17 @@ textarea{
 
 .todoFormButton:hover{
     background-color: rgb(168, 168, 168);
+}
+
+.todoLi{
+    padding: 8px 20px;
+}
+
+.todoLabel{
+    display: flex;
+    gap: 6px;
+    cursor:pointer ;
+
 }
 
 .checkBox{
