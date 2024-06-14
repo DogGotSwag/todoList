@@ -282,18 +282,49 @@ textarea{
 
 .todoLi{
     padding: 8px 20px;
+    margin-left: 40px;
 }
 
 .todoLabel{
     display: flex;
     gap: 6px;
     cursor:pointer ;
+    position: relative;
 
 }
 
+.todoLabel::before{
+    content: "";
+    background: url("../img/greenCheckMark.svg");
+    background-position: center;
+    background-size: contain;
+    width: 26px;
+    height: 26px;
+    position: absolute;
+    left: -38px;
+    bottom: -5px;
+
+    transform: scale(0) rotateZ(180deg);
+    transition: all 0.4s cubic-bezier( 0.54, 0.01, 0, 1.49);
+}
+
+.checkBox:checked + label::before{
+    transform: scale(1) rotateZ(0deg);
+}
+
+.todoLabel::after{
+    content: "";
+    border: 2px solid rgb(72,164,68);
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    left: -38px;
+    bottom: -5px;
+    border-radius: 50%;
+}
+
 .checkBox{
-    appearance: auto;
-    cursor: pointer;
+    display: none;
 }
 
 

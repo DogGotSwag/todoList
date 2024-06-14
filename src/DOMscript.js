@@ -112,10 +112,9 @@ let DOM_Module = (function (index) {
             label.setAttribute('name' ,`todo_${index}`);
 
 
-            label.appendChild(checkbox);
             label.appendChild(p);
             
-
+            li.appendChild(checkbox)
             li.appendChild(label);
 
             ul.appendChild(li);
