@@ -110,9 +110,8 @@ let DOM_Module = (function (index) {
             label.classList.add('todoLabel');
             label.setAttribute('for', `todo_${index}`);
             label.setAttribute('name' ,`todo_${index}`);
-
-
             label.appendChild(p);
+
             
             li.appendChild(checkbox)
             li.appendChild(label);

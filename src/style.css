@@ -294,6 +294,7 @@ textarea{
     background-color: var(--blue);
     border-radius: 6px;
     box-shadow: 1px 1px 2px 1px var(--shadow);
+    /* border-right: 10px solid #c75e5e; */
 }
 
 .todoLabel{

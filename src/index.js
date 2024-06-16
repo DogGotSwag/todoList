@@ -102,3 +102,31 @@ addToButton.addEventListener( 'click', () =>{
 
     });                
 });
+
+
+
+for( let i = 0; i < 1; i++){
+    let addProject = document.querySelector(".iconAddProject");
+    addProject.click();
+
+    let projectIn = document.querySelector('.projectInput');
+    projectIn.value = "DD";
+
+    let projButton = document.querySelector(".projectButton");
+    projButton.click();
+
+    let testProject = document.querySelector(`._${i}`);
+    testProject.click();
+
+    for( let j = 0; j < 5; j++){
+        let tButt = document.querySelector('.addTodoIcon.active');
+        tButt.click();
+
+        let tIn = document.querySelector('.inputTitle');
+        tIn.value = `test${j}`;
+
+        let add = document.querySelector('.todoFormButton.todoAddButton');
+        add.click();
+    }
+    
+}
