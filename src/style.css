@@ -281,8 +281,12 @@ textarea{
 }
 
 .todoLi{
-    padding: 8px 20px;
-    margin-left: 40px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 20px 20px;
+    grid-template-rows: 1fr;
+    height: 28px;
+    padding-left: 60px;
 }
 
 .todoLabel{
@@ -290,7 +294,11 @@ textarea{
     gap: 6px;
     cursor:pointer ;
     position: relative;
+}
 
+.todoLabel p {
+    display: flex;
+    align-items: center;
 }
 
 .todoLabel::before{
@@ -302,7 +310,7 @@ textarea{
     height: 26px;
     position: absolute;
     left: -38px;
-    bottom: -5px;
+    bottom: 0px;
 
     transform: scale(0) rotateZ(180deg);
     transition: all 0.4s cubic-bezier( 0.54, 0.01, 0, 1.49);
@@ -319,7 +327,7 @@ textarea{
     width: 22px;
     height: 22px;
     left: -38px;
-    bottom: -5px;
+    bottom: 0px;
     border-radius: 50%;
 }
 
