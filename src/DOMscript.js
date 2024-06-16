@@ -112,10 +112,16 @@ let DOM_Module = (function (index) {
             label.setAttribute('name' ,`todo_${index}`);
             label.appendChild(p);
 
+            let dueDate = document.createElement('p');
+            dueDate.innerText = "Hello";
+
             
+
             li.appendChild(checkbox)
             li.appendChild(label);
+            li.appendChild(dueDate);
 
+            li.classList.add(`${key.priority}`);
             ul.appendChild(li);
         });
 

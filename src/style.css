@@ -287,14 +287,25 @@ textarea{
 .todoLi{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr 20px 20px;
+    grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
     height: 28px;
 
     background-color: var(--blue);
     border-radius: 6px;
     box-shadow: 1px 1px 2px 1px var(--shadow);
-    /* border-right: 10px solid #c75e5e; */
+    margin-bottom: 20px;
+    padding-right: 10px;
+}
+
+.todoLi.low{
+    border-right: 10px solid #f9e54e;
+}
+.todoLi.medium{
+    border-right: 10px solid #f5a65d;
+}
+.todoLi.high{
+    border-right: 10px solid #c75e5e;
 }
 
 .todoLabel{
@@ -304,10 +315,15 @@ textarea{
     position: relative;
 }
 
-.todoLabel p {
+.todoLabel p:first-child{
+    padding-left: 10px;
     display: flex;
     align-items: center;
-    padding-left: 10px;
+}
+
+.todoLi p {
+    display: flex;
+    align-items: center;
 }
 
 .todoLabel::before{
