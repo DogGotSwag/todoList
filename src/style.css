@@ -289,6 +289,7 @@ textarea{
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 28px;
+    grid-auto-rows: 1fr;
 
     height: 28px;
     transition: all .3s ease;
@@ -298,6 +299,7 @@ textarea{
     box-shadow: 1px 1px 2px 1px var(--shadow);
     margin-bottom: 20px;
     padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 .dropDownIcon{
@@ -312,7 +314,7 @@ textarea{
 }
 
 .todoLi.expand{
-    height: 60px;
+    height: 120px;
 }
 
 .todoLi.low{
@@ -384,6 +386,23 @@ textarea{
 .checkBox{
     display: none;
 }
+
+
+.editTodoForm{
+    display: none;
+    justify-self: center;
+    width: 97%;
+    height: 100%;
+    border: 1px solid black;
+    margin-left: 10px;
+
+}
+
+.editTodoForm.visible{
+    display: block;
+}
+
+
 
 
 

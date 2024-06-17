@@ -128,18 +128,7 @@ let DOM_Module = (function (index) {
             div.appendChild(img);
             img.classList.add('dropDownIcon');
 
-            div.addEventListener('click', () => {
-                let liClasses = Array.from( li.classList);
-                if( liClasses.includes("expand") ){
-                    li.classList.remove('expand');
-                    img.src = dropDown;
-                }
-                else{
-                    li.classList.add('expand');
-                    img.src = up;
-                }
-            });
-
+            
             
 
             topContainer.appendChild(checkbox)
@@ -147,10 +136,31 @@ let DOM_Module = (function (index) {
             topContainer.appendChild(dueDate);
             topContainer.appendChild(div);
 
+
+            let editForm = document.createElement('form');
+            editForm.classList.add('editTodoForm');
+
+
             li.appendChild(topContainer);
+            li.appendChild(editForm);
 
             li.classList.add(`${key.priority}`);
             ul.appendChild(li);
+
+            div.addEventListener('click', () => {
+                let liClasses = Array.from( li.classList);
+                if( liClasses.includes("expand") ){
+                    li.classList.remove('expand');
+                    img.src = dropDown;
+                    editForm.classList.remove('visible');
+                }
+                else{
+                    li.classList.add('expand');
+                    img.src = up;
+                    editForm.classList.add('visible');
+                }
+            });
+
         });
 
         allTodosContainer.appendChild(ul);
