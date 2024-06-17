@@ -140,6 +140,68 @@ let DOM_Module = (function (index) {
             let editForm = document.createElement('form');
             editForm.classList.add('editTodoForm');
 
+            let divOne = document.createElement('div');
+            divOne.classList.add('todoEditDiv');
+            let titleLabel = document.createElement('label');
+            titleLabel.innerText = "Title";
+            let titleInput = document.createElement('input');
+            titleInput.setAttribute('type', 'text');
+            titleInput.value = key.title;
+
+            divOne.appendChild(titleLabel);
+            divOne.appendChild(titleInput);
+
+            let divTwo = document.createElement('div');
+            divTwo.classList.add('todoEditDiv');
+            let dueDateLabel = document.createElement('label');
+            dueDateLabel.innerText = "Due Date";
+            let dueDateInput = document.createElement('input');
+            dueDateInput.setAttribute('type', 'date');
+            divTwo.appendChild(dueDateLabel);
+            divTwo.appendChild(dueDateInput);
+
+            let divThree = document.createElement('div');
+            divThree.classList.add('todoEditDiv');
+            let priorityLabel = document.createElement('label');
+            priorityLabel.innerText = "Priority"
+            let priorityInput = document.createElement('select');
+            let selectOptions = ['low','medium', 'high'];
+
+            selectOptions.forEach( op => {
+                let option = document.createElement('option');
+                option.innerText = op;
+                    priorityInput.appendChild(option);
+            });
+            divThree.appendChild(priorityLabel);
+            divThree.appendChild(priorityInput);
+            
+            let divFour = document.createElement('div');
+            divFour.classList.add('todoEditDiv');
+            divFour.classList.add('todoEditLastDiv');
+            let desLabel = document.createElement('label');
+            desLabel.innerText = "Description";
+            let desInput = document.createElement('textarea');
+            divFour.appendChild(desLabel);
+            divFour.appendChild(desInput);
+
+            let divFive = document.createElement('div');
+            divFive.classList.add('todoEditDiv');
+            divFive.classList.add('todoEditLastDiv');
+            let notesLabel = document.createElement('label');
+            notesLabel.innerText = "Notes";
+            let notesInput = document.createElement('textarea');
+            divFive.appendChild(notesLabel);
+            divFive.appendChild(notesInput);
+
+            editForm.appendChild(divOne);
+            editForm.appendChild(divTwo);
+            editForm.appendChild(divThree);
+            editForm.appendChild(divFour);
+            editForm.appendChild(divFive);
+
+
+            
+
 
             li.appendChild(topContainer);
             li.appendChild(editForm);
