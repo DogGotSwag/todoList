@@ -180,6 +180,7 @@ body{
     justify-content: center;
     background-color: rgb(237, 223, 208);
     font-size: 14px;
+    margin-right: 45px;
 }
 
 .allTodos{
@@ -198,7 +199,7 @@ body{
     position: absolute;
     width: 40px;
     height: 40px;
-    bottom: 10px;
+    top: 5px;
     right: 10px;
     background-color: transparent;
     visibility: hidden;
@@ -220,7 +221,7 @@ body{
     height: 330px;
     background-color: var(--blue);
     border-radius: var(--borderRadius);
-    bottom: 10px;
+    top: 8px;
     right: 10px;
     border: 2px solid rgb(118, 116, 116);
     padding: 6px;
@@ -473,6 +474,10 @@ textarea{
 .todoEditLastDiv textarea{
    height: 132px;
    padding: 6px 10px;
+}
+
+textarea{
+    resize: none;
 }
 
 
