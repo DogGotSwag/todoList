@@ -100,6 +100,9 @@ let DOM_Module = (function (index) {
             let li = document.createElement('li');
             li.classList.add('todoLi');
 
+            let topContainer = document.createElement('div');
+            topContainer.classList.add('topContainer');
+
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
@@ -139,10 +142,12 @@ let DOM_Module = (function (index) {
 
             
 
-            li.appendChild(checkbox)
-            li.appendChild(label);
-            li.appendChild(dueDate);
-            li.appendChild(div);
+            topContainer.appendChild(checkbox)
+            topContainer.appendChild(label);
+            topContainer.appendChild(dueDate);
+            topContainer.appendChild(div);
+
+            li.appendChild(topContainer);
 
             li.classList.add(`${key.priority}`);
             ul.appendChild(li);

@@ -287,9 +287,8 @@ textarea{
 .todoLi{
     width: 100%;
     display: grid;
-    grid-template-columns: 1fr auto 20px;
-    grid-template-rows: 1fr;
-    gap: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 28px;
 
     height: 28px;
     transition: all .3s ease;
@@ -324,6 +323,14 @@ textarea{
 }
 .todoLi.high{
     border-right: 10px solid #c75e5e;
+}
+
+.topContainer{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr auto 20px;
+    grid-template-rows: 1fr;
+    gap: 5px;
 }
 
 .todoLabel{
