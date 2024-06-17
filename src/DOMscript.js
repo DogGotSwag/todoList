@@ -144,9 +144,11 @@ let DOM_Module = (function (index) {
             divOne.classList.add('todoEditDiv');
             let titleLabel = document.createElement('label');
             titleLabel.innerText = "Title";
+            titleLabel.setAttribute(`for`, `titleEdit${index}`);
             let titleInput = document.createElement('input');
             titleInput.setAttribute('type', 'text');
             titleInput.value = key.title;
+            titleInput.id = `titleEdit${index}`;
 
             divOne.appendChild(titleLabel);
             divOne.appendChild(titleInput);
@@ -155,8 +157,10 @@ let DOM_Module = (function (index) {
             divTwo.classList.add('todoEditDiv');
             let dueDateLabel = document.createElement('label');
             dueDateLabel.innerText = "Due Date";
+            dueDateLabel.setAttribute('for', `dueEdit${index}`);
             let dueDateInput = document.createElement('input');
             dueDateInput.setAttribute('type', 'date');
+            dueDateInput.id = `dueEdit${index}`;
             divTwo.appendChild(dueDateLabel);
             divTwo.appendChild(dueDateInput);
 
@@ -164,7 +168,9 @@ let DOM_Module = (function (index) {
             divThree.classList.add('todoEditDiv');
             let priorityLabel = document.createElement('label');
             priorityLabel.innerText = "Priority"
+            priorityLabel.setAttribute('for', `priorityEdit${index}`);
             let priorityInput = document.createElement('select');
+            priorityInput.id = `priorityEdit${index}`;
             let selectOptions = ['low','medium', 'high'];
 
             selectOptions.forEach( op => {
