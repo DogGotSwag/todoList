@@ -181,6 +181,8 @@ let DOM_Module = (function (index) {
             let desLabel = document.createElement('label');
             desLabel.innerText = "Description";
             let desInput = document.createElement('textarea');
+            desInput.innerHTML = "Hello";
+            desInput.innerText = key.description;
             divFour.appendChild(desLabel);
             divFour.appendChild(desInput);
 

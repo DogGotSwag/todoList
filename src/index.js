@@ -93,13 +93,14 @@ addToButton.addEventListener( 'click', () =>{
         let title = document.querySelector('.inputTitle');
         let due = document.querySelector(".dateInput");
         let select = document.querySelector(".todoForm select");
-        let description = document.querySelector("textArea");
+        let description = document.querySelector(".todoForm textArea");
 
         let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
-        console.log(projectList[currentProjectIndex].todoList.length);
         projectList[currentProjectIndex].todoList.push(newTodo);
         domChanger.removeTodoForm();
         domChanger.updateRightSide( projectList[currentProjectIndex] );
+
+        console.log(projectList);
 
         //code goes here
 
