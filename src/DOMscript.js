@@ -1,5 +1,7 @@
 import './style.css';
 import xImg from '../img/close-thick.svg';
+import dropDown from "../img/downArrow.svg";
+import up from "../img/upArrow.svg";
 
 let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
@@ -115,13 +117,23 @@ let DOM_Module = (function (index) {
             let dueDate = document.createElement('p');
             dueDate.innerText = "Hello";
 
-            dueDate.addEventListener('click', () => {
+            let div = document.createElement('div');
+            div.classList.add('dropDownContainer');
+
+            let img = new Image();
+            img.src = dropDown;
+            div.appendChild(img);
+            img.classList.add('dropDownIcon');
+
+            div.addEventListener('click', () => {
                 let liClasses = Array.from( li.classList);
                 if( liClasses.includes("expand") ){
                     li.classList.remove('expand');
+                    img.src = dropDown;
                 }
                 else{
                     li.classList.add('expand');
+                    img.src = up;
                 }
             });
 
@@ -130,6 +142,7 @@ let DOM_Module = (function (index) {
             li.appendChild(checkbox)
             li.appendChild(label);
             li.appendChild(dueDate);
+            li.appendChild(div);
 
             li.classList.add(`${key.priority}`);
             ul.appendChild(li);
