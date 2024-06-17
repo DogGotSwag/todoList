@@ -115,6 +115,16 @@ let DOM_Module = (function (index) {
             let dueDate = document.createElement('p');
             dueDate.innerText = "Hello";
 
+            dueDate.addEventListener('click', () => {
+                let liClasses = Array.from( li.classList);
+                if( liClasses.includes("expand") ){
+                    li.classList.remove('expand');
+                }
+                else{
+                    li.classList.add('expand');
+                }
+            });
+
             
 
             li.appendChild(checkbox)

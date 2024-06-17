@@ -289,13 +289,19 @@ textarea{
     display: grid;
     grid-template-columns: 1fr auto;
     grid-template-rows: 1fr;
+
     height: 28px;
+    transition: all .3s ease;
 
     background-color: var(--blue);
     border-radius: 6px;
     box-shadow: 1px 1px 2px 1px var(--shadow);
     margin-bottom: 20px;
     padding-right: 10px;
+}
+
+.todoLi.expand{
+    height: 60px;
 }
 
 .todoLi.low{

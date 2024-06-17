@@ -72,7 +72,8 @@ addProjectButton.addEventListener('click', () =>{
             }
             else{
                 currentProjectIndex = clickedProjectIndex;
-                domChanger.updateRightSide( projectList[currentProjectIndex] );   
+                domChanger.updateRightSide( projectList[currentProjectIndex] );
+                
             }
             
         });
@@ -95,10 +96,14 @@ addToButton.addEventListener( 'click', () =>{
         let description = document.querySelector("textArea");
 
         let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
+        console.log(projectList[currentProjectIndex].todoList.length);
         projectList[currentProjectIndex].todoList.push(newTodo);
-
         domChanger.removeTodoForm();
-        domChanger.updateRightSide( projectList[currentProjectIndex] );    
+        domChanger.updateRightSide( projectList[currentProjectIndex] );
+
+        //code goes here
+
+        
 
     });                
 });
