@@ -100,7 +100,6 @@ addToButton.addEventListener( 'click', () =>{
         domChanger.removeTodoForm();
         domChanger.updateRightSide( projectList[currentProjectIndex] );
 
-        console.log(projectList);
 
         //code goes here
 

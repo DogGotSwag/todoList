@@ -170,7 +170,10 @@ let DOM_Module = (function (index) {
             selectOptions.forEach( op => {
                 let option = document.createElement('option');
                 option.innerText = op;
-                    priorityInput.appendChild(option);
+                if( key.priority == op){
+                    option.setAttribute('selected','selected' );
+                }
+                priorityInput.appendChild(option);
             });
             divThree.appendChild(priorityLabel);
             divThree.appendChild(priorityInput);
