@@ -6,6 +6,7 @@ class TodoItem{
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.notes = "";
     }
 }
 
@@ -102,8 +103,25 @@ addToButton.addEventListener( 'click', () =>{
 
 
         //code goes here
-
+        let sumbits = document.querySelectorAll('.editButtonsSection .editSubmit');
         
+        for(let i = 0; i < sumbits.length; i++){
+            sumbits[i].addEventListener('click', (event) => {
+                let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
+                
+                let newTitle = event.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.value;
+                let newDueDate = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.value;
+                let newPriority = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+                let newDes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+                let newNotes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+
+                projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
+                projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
+                projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;
+                projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
+                projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
+            });
+        }
 
     });                
 });

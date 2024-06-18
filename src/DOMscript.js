@@ -99,6 +99,7 @@ let DOM_Module = (function (index) {
         todoList.forEach( (key,index) => {
             let li = document.createElement('li');
             li.classList.add('todoLi');
+            li.id = `todo_${index}`;
 
             let topContainer = document.createElement('div');
             topContainer.classList.add('topContainer');
@@ -106,7 +107,7 @@ let DOM_Module = (function (index) {
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
-            checkbox.id = `todo_${index}`;
+            
 
             let p = document.createElement('p');
             p.innerText = key.title;
@@ -222,6 +223,7 @@ let DOM_Module = (function (index) {
             let editSumbit = document.createElement('button');
             editSumbit.setAttribute('type', 'button');
             editSumbit.classList.add('editButton');
+            editSumbit.classList.add('editSubmit');
             editSumbit.innerText = "Sumbit Changes";
             divSix.appendChild(deleteTodoButton);
             divSix.appendChild(editCancel);
