@@ -377,11 +377,16 @@ let DOM_Module = (function (index) {
         todoLi.classList.add(newPriority);
     };
 
+    let updateTitle = ( index , newTitle ) => {
+        let todoTitle = document.querySelector(`#todo_${index} p`); 
+        todoTitle.innerText = newTitle;
+    }; 
+
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
-        updatePriorityMarker
+        updatePriorityMarker, updateTitle
     };
 }
 )();

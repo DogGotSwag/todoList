@@ -108,7 +108,6 @@ addToButton.addEventListener( 'click', () =>{
         for(let i = 0; i < sumbits.length; i++){
             sumbits[i].addEventListener('click', (event) => {
                 let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
-                
                 let newTitle = event.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.value;
                 let newDueDate = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.value;
                 let newPriority = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
@@ -116,7 +115,11 @@ addToButton.addEventListener( 'click', () =>{
                 let newNotes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
 
                 
-                projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
+                if( !(projectList[currentProjectIndex].todoList[todoIndex].title === newTitle) ){
+                    domChanger.updateTitle(todoIndex, newTitle);
+                    projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
+                }
+                
                 projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
                 if( !(projectList[currentProjectIndex].todoList[todoIndex].priority == newPriority)){
                     domChanger.updatePriorityMarker(todoIndex , projectList[currentProjectIndex].todoList[todoIndex].priority, newPriority);
