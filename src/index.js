@@ -7,6 +7,7 @@ class TodoItem{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = "";
+        this.done = false;
     }
 }
 
@@ -128,6 +129,17 @@ addToButton.addEventListener( 'click', () =>{
                 
                 projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
                 projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
+            });
+        }
+
+        let checkboxes = document.querySelectorAll('.todoLi .checkBox');
+        for(let i = 0; i < checkboxes.length; i++){
+            checkboxes[i].addEventListener( 'change' , ( event) =>{
+                if (event.target.checked) {
+                    console.log("Checkbox is checked..");
+                } else {
+                    console.log("Checkbox is not checked..");
+                }
             });
         }
 
