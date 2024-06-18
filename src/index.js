@@ -121,7 +121,11 @@ addToButton.addEventListener( 'click', () =>{
                     projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
                 }
                 
-                projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
+                if( !(projectList[currentProjectIndex].todoList[todoIndex].dueDate === newDueDate) ){
+                    domChanger.updateDueDate( todoIndex, newDueDate);
+                    projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
+                }
+                
                 if( !(projectList[currentProjectIndex].todoList[todoIndex].priority == newPriority)){
                     domChanger.updatePriorityMarker(todoIndex , projectList[currentProjectIndex].todoList[todoIndex].priority, newPriority);
                     projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;

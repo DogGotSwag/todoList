@@ -390,11 +390,17 @@ let DOM_Module = (function (index) {
         todoTitle.innerText = newTitle;
     }; 
 
+    let updateDueDate = ( index , newDueDate) => {
+        let todoDue = document.querySelector( `#todo_${index} .dueDateP`);
+        todoDue.innerText = (newDueDate == "") ? "No Due Date" : newDueDate; 
+        
+    };
+
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
-        updatePriorityMarker, updateTitle
+        updatePriorityMarker, updateTitle, updateDueDate
     };
 }
 )();
