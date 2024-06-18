@@ -201,8 +201,7 @@ let DOM_Module = (function (index) {
             let desLabel = document.createElement('label');
             desLabel.innerText = "Description";
             let desInput = document.createElement('textarea');
-            desInput.innerHTML = "Hello";
-            desInput.innerText = key.description;
+            desInput.value = key.description;
             divFour.appendChild(desLabel);
             divFour.appendChild(desInput);
 
@@ -212,6 +211,7 @@ let DOM_Module = (function (index) {
             let notesLabel = document.createElement('label');
             notesLabel.innerText = "Notes";
             let notesInput = document.createElement('textarea');
+            notesInput.value = key.notes;
             divFive.appendChild(notesLabel);
             divFive.appendChild(notesInput);
 
@@ -227,7 +227,25 @@ let DOM_Module = (function (index) {
             let editCancel = document.createElement('button');
             editCancel.setAttribute('type', 'button');
             editCancel.classList.add('editButton');
-            editCancel.innerText = "Remove Changes";
+            editCancel.innerText = "Undo Draft";
+
+
+            editCancel.addEventListener('click', () => {
+                titleInput.value = key.title;
+                dueDateInput.value = key.dueDate;
+                desInput.value = key.description;
+                notesInput.value = key.notes;
+
+                if( key.priority == 'low'){
+                    priorityInput.selectedIndex = 0;
+                }
+                else if( key.priority == "medium"){
+                    priorityInput.selectedIndex = 1;
+                }
+                else{
+                    priorityInput.selectedIndex = 2;
+                }
+            });
 
             let editSumbit = document.createElement('button');
             editSumbit.setAttribute('type', 'button');
