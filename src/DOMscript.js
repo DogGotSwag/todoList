@@ -205,11 +205,34 @@ let DOM_Module = (function (index) {
             divFive.appendChild(notesLabel);
             divFive.appendChild(notesInput);
 
+            let divSix = document.createElement('div');
+            divSix.classList.add('editButtonsSection');
+
+            let deleteTodoButton = document.createElement('button');
+            deleteTodoButton.setAttribute('type', 'button');
+            deleteTodoButton.classList.add('editButton');
+            deleteTodoButton.classList.add('editDelete');
+            deleteTodoButton.innerText = "Delete This Todo";
+
+            let editCancel = document.createElement('button');
+            editCancel.setAttribute('type', 'button');
+            editCancel.classList.add('editButton');
+            editCancel.innerText = "Remove Changes";
+
+            let editSumbit = document.createElement('button');
+            editSumbit.setAttribute('type', 'button');
+            editSumbit.classList.add('editButton');
+            editSumbit.innerText = "Sumbit Changes";
+            divSix.appendChild(deleteTodoButton);
+            divSix.appendChild(editCancel);
+            divSix.appendChild(editSumbit);
+
             editForm.appendChild(divOne);
             editForm.appendChild(divTwo);
             editForm.appendChild(divThree);
             editForm.appendChild(divFour);
             editForm.appendChild(divFive);
+            editForm.appendChild(divSix);
 
 
             

@@ -183,9 +183,7 @@ body{
     margin-right: 45px;
 }
 
-.allTodos{
 
-}
 
 .todoContainer{
     width: 100%;
@@ -315,7 +313,7 @@ textarea{
 }
 
 .todoLi.expand{
-    height: 440px;
+    height: 472px;
 }
 
 .todoLi.low{
@@ -450,6 +448,7 @@ textarea{
 .todoEditDiv label{
     width: 80px;
     padding-right: 10px;
+    font-size: 15px;
 }
 
 
@@ -477,6 +476,31 @@ textarea{
 
 textarea{
     resize: none;
+}
+
+.editButtonsSection{
+    display: flex;
+    justify-content: space-between;
+}
+
+.editButton{
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 600;
+    background-color: whitesmoke;
+}
+.editButton:hover{
+    background-color: rgb(219, 217, 217);
+}
+.editDelete{
+    background-color: rgb(186, 1, 1);
+    color: whitesmoke;
+}
+
+.editDelete:hover{
+    background-color: rgb(140, 2, 2);
 }
 
 
