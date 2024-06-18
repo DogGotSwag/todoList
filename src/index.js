@@ -115,9 +115,14 @@ addToButton.addEventListener( 'click', () =>{
                 let newDes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
                 let newNotes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
 
+                
                 projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
                 projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
-                projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;
+                if( !(projectList[currentProjectIndex].todoList[todoIndex].priority == newPriority)){
+                    domChanger.updatePriorityMarker(todoIndex , projectList[currentProjectIndex].todoList[todoIndex].priority, newPriority);
+                    projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;
+                }
+                
                 projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
                 projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
             });

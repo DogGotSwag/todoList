@@ -368,12 +368,19 @@ let DOM_Module = (function (index) {
             removeTodoForm();
         }
         
-    }
+    };
+
+    let updatePriorityMarker = ( index, oldPriority, newPriority) => {
+        let todoLi = document.querySelector(`#todo_${index}`); 
+        todoLi.classList.remove(oldPriority);
+        todoLi.classList.add(newPriority);
+    };
 
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
-        addTodoForm, removeTodoForm, removeTodoFormButton
+        addTodoForm, removeTodoForm, removeTodoFormButton,
+        updatePriorityMarker
     };
 }
 )();
