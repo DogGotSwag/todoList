@@ -121,7 +121,14 @@ let DOM_Module = (function (index) {
             label.appendChild(p);
 
             let dueDate = document.createElement('p');
-            dueDate.innerText = "Hello";
+            dueDate.classList.add('dueDateP');
+            if( key.dueDate == ""){
+                dueDate.innerText = "No Due Date";
+            }
+            else{
+            dueDate.innerText = key.dueDate;
+
+            }
 
             let div = document.createElement('div');
             div.classList.add('dropDownContainer');
