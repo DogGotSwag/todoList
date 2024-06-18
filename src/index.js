@@ -148,6 +148,15 @@ addToButton.addEventListener( 'click', () =>{
             });
         }
 
+        let deleteButtons = document.querySelectorAll('.editButtonsSection .editDelete');
+        for( let i = 0; i < deleteButtons.length ; i++){
+            deleteButtons[i].addEventListener( 'click' , ( event) => {
+                let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
+                projectList[currentProjectIndex].todoList.splice( todoIndex, 1);
+                domChanger.removeTodo( todoIndex);
+            });
+        }
+
     });                
 });
 

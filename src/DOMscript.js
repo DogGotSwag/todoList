@@ -396,11 +396,28 @@ let DOM_Module = (function (index) {
         
     };
 
+    let removeTodo = (index) => {
+        let todoToBeRemoved = document.querySelector( `#todo_${index}`);
+        let containers = document.querySelector('.allTodos ul');
+        containers.removeChild(todoToBeRemoved);
+
+
+        let key = containers.firstElementChild;
+
+        let newIndex = 0;
+        while (key != null) {
+            key.id = `todo_${newIndex}`;
+            newIndex++;
+            key = key.nextElementSibling;
+        }
+    };
+
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
-        updatePriorityMarker, updateTitle, updateDueDate
+        updatePriorityMarker, updateTitle, updateDueDate,
+        removeTodo
     };
 }
 )();
