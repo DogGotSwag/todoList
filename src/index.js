@@ -135,10 +135,11 @@ addToButton.addEventListener( 'click', () =>{
         let checkboxes = document.querySelectorAll('.todoLi .checkBox');
         for(let i = 0; i < checkboxes.length; i++){
             checkboxes[i].addEventListener( 'change' , ( event) =>{
+                let todoIndex = event.target.parentNode.parentNode.id.split('_')[1];
                 if (event.target.checked) {
-                    console.log("Checkbox is checked..");
+                    projectList[currentProjectIndex].todoList[todoIndex].done = true;
                 } else {
-                    console.log("Checkbox is not checked..");
+                    projectList[currentProjectIndex].todoList[todoIndex].done = false;
                 }
             });
         }
