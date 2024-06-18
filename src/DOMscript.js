@@ -161,6 +161,7 @@ let DOM_Module = (function (index) {
             let dueDateInput = document.createElement('input');
             dueDateInput.setAttribute('type', 'date');
             dueDateInput.id = `dueEdit${index}`;
+            dueDateInput.defaultValue = key.dueDate;
             divTwo.appendChild(dueDateLabel);
             divTwo.appendChild(dueDateInput);
 
