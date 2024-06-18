@@ -393,6 +393,7 @@ textarea{
     width: 97%;
     height: 100%;
     border: 1px solid black;
+    border-radius: 3px;
     margin-left: 10px;
 
     padding: 10px;
