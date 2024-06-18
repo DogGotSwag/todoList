@@ -111,6 +111,7 @@ let DOM_Module = (function (index) {
             
 
             let p = document.createElement('p');
+            p.classList.add('todoTitleP');
             p.innerText = key.title;
             
             let label = document.createElement('label');
@@ -378,7 +379,7 @@ let DOM_Module = (function (index) {
     };
 
     let updateTitle = ( index , newTitle ) => {
-        let todoTitle = document.querySelector(`#todo_${index} p`); 
+        let todoTitle = document.querySelector(`#todo_${index} .todoTitleP`); 
         todoTitle.innerText = newTitle;
     }; 
 

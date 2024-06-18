@@ -301,6 +301,11 @@ textarea{
     padding-bottom: 10px;
 }
 
+.todoTitleP{
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .dropDownIcon{
     width: 20px;
     height: 20px;
