@@ -107,6 +107,7 @@ let DOM_Module = (function (index) {
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
+            checkbox.id = `todoCheck_${index}`
             
 
             let p = document.createElement('p');
@@ -114,7 +115,7 @@ let DOM_Module = (function (index) {
             
             let label = document.createElement('label');
             label.classList.add('todoLabel');
-            label.setAttribute('for', `todo_${index}`);
+            label.setAttribute('for', `todoCheck_${index}`);
             label.setAttribute('name' ,`todo_${index}`);
             label.appendChild(p);
 
