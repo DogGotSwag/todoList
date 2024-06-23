@@ -126,8 +126,7 @@ let DOM_Module = (function (index) {
                 dueDate.innerText = "No Due Date";
             }
             else{
-            dueDate.innerText = key.dueDate;
-
+                dueDate.innerText = key.dueDate;
             }
 
             let div = document.createElement('div');

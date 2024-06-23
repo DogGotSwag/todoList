@@ -1,5 +1,20 @@
 import './style.css';
 import domChanger from './DOMscript';
+
+if (!localStorage.getItem("localProjectList")) {
+    console.log('not exist');
+    localStorage.setItem("localProjectList", 9001);
+} else {
+    console.log('exist');
+    let savedLocal =  JSON.parse(localStorage.getItem('localProjectList'));
+    
+    for( let i = 0 ; i < savedLocal.length ; i++){
+        console.log(savedLocal[i]);
+    }
+
+}
+
+
 class TodoItem{
     constructor( title, description, dueDate, priority){
         this.title = title;
@@ -34,6 +49,7 @@ addProjectButton.addEventListener('click', () =>{
 
         let newProject = new Project( projectName );
         projectList.push(newProject);
+        localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
         domChanger.addProject( projectName, newProjectIndex);
         domChanger.removeProjectForm();
 
@@ -51,6 +67,7 @@ addProjectButton.addEventListener('click', () =>{
 
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1]);
+            localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
             event.stopPropagation();
         });
 
@@ -97,8 +114,10 @@ addToButton.addEventListener( 'click', () =>{
         let select = document.querySelector(".todoForm select");
         let description = document.querySelector(".todoForm textArea");
 
+        
         let newTodo = new TodoItem( title.value, description.value,due.value, select.value);
         projectList[currentProjectIndex].todoList.push(newTodo);
+        localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
         domChanger.removeTodoForm();
         domChanger.updateRightSide( projectList[currentProjectIndex] );
 
@@ -133,6 +152,7 @@ addToButton.addEventListener( 'click', () =>{
                 
                 projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
                 projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
             });
         }
 
@@ -142,8 +162,10 @@ addToButton.addEventListener( 'click', () =>{
                 let todoIndex = event.target.parentNode.parentNode.id.split('_')[1];
                 if (event.target.checked) {
                     projectList[currentProjectIndex].todoList[todoIndex].done = true;
+                    localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
                 } else {
                     projectList[currentProjectIndex].todoList[todoIndex].done = false;
+                    localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
                 }
             });
         }
@@ -154,6 +176,7 @@ addToButton.addEventListener( 'click', () =>{
                 let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
                 projectList[currentProjectIndex].todoList.splice( todoIndex, 1);
                 domChanger.removeTodo( todoIndex);
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
             });
         }
 
@@ -162,28 +185,28 @@ addToButton.addEventListener( 'click', () =>{
 
 
 
-for( let i = 0; i < 1; i++){
-    let addProject = document.querySelector(".iconAddProject");
-    addProject.click();
+// for( let i = 0; i < 1; i++){
+//     let addProject = document.querySelector(".iconAddProject");
+//     addProject.click();
 
-    let projectIn = document.querySelector('.projectInput');
-    projectIn.value = "DD";
+//     let projectIn = document.querySelector('.projectInput');
+//     projectIn.value = "DD";
 
-    let projButton = document.querySelector(".projectButton");
-    projButton.click();
+//     let projButton = document.querySelector(".projectButton");
+//     projButton.click();
 
-    let testProject = document.querySelector(`._${i}`);
-    testProject.click();
+//     let testProject = document.querySelector(`._${i}`);
+//     testProject.click();
 
-    for( let j = 0; j < 5; j++){
-        let tButt = document.querySelector('.addTodoIcon.active');
-        tButt.click();
+//     for( let j = 0; j < 5; j++){
+//         let tButt = document.querySelector('.addTodoIcon.active');
+//         tButt.click();
 
-        let tIn = document.querySelector('.inputTitle');
-        tIn.value = `test${j}`;
+//         let tIn = document.querySelector('.inputTitle');
+//         tIn.value = `test${j}`;
 
-        let add = document.querySelector('.todoFormButton.todoAddButton');
-        add.click();
-    }
+//         let add = document.querySelector('.todoFormButton.todoAddButton');
+//         add.click();
+//     }
     
-}
+// }
