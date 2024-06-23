@@ -81,6 +81,7 @@ let DOM_Module = (function (index) {
 
 
     let updateRightSide = (project) => {
+        console.log( project);
         updateRightHeader(project.title);
         updateToDoSection(project.todoList);
         addTodoButton();

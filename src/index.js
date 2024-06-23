@@ -1,20 +1,6 @@
 import './style.css';
 import domChanger from './DOMscript';
 
-if (!localStorage.getItem("localProjectList")) {
-    console.log('not exist');
-    localStorage.setItem("localProjectList", 9001);
-} else {
-    console.log('exist');
-    let savedLocal =  JSON.parse(localStorage.getItem('localProjectList'));
-    
-    for( let i = 0 ; i < savedLocal.length ; i++){
-        console.log(savedLocal[i]);
-    }
-
-}
-
-
 class TodoItem{
     constructor( title, description, dueDate, priority){
         this.title = title;
@@ -35,6 +21,85 @@ class Project{
 
 let projectList = [];
 let currentProjectIndex;
+
+
+if (!localStorage.getItem("localProjectList")) {
+    console.log('not exist');
+    localStorage.setItem("localProjectList", 9001);
+} else {
+
+    let savedLocal =  JSON.parse(localStorage.getItem('localProjectList'));
+    
+    for( let i = 0 ; i < savedLocal.length ; i++){
+        let newProjectIndex = projectList.length;
+        domChanger.addProject( savedLocal[i].title, newProjectIndex);
+        let newProject = new Project( savedLocal[i].title );
+        projectList.push(newProject);
+        
+
+        let xButton = document.querySelector( `.project._${newProjectIndex} img` );
+        xButton.addEventListener("click", (event) => {
+            let classes = event.target.parentNode.classList;
+            let index = classes[1].split("")[1];
+
+            if( index == currentProjectIndex ){
+                domChanger.removeTodoFormButton();
+            }
+            else if( index < currentProjectIndex){
+                currentProjectIndex--;
+            }
+
+            projectList.splice( index, 1);
+            domChanger.removeProject(classes[1]);
+            localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            event.stopPropagation();
+        });
+
+        let project = document.querySelector( `.project._${newProjectIndex}` );
+        
+        project.addEventListener("click", (event) => {
+            let type = event.target.nodeName;
+            let target;
+
+            if( type == "LI" ){
+                target = event.target;
+            }
+            else{
+                target = event.target.parentNode;
+            }
+
+            let clickedProjectIndex = target.classList[1].split("")[1];
+
+            if( clickedProjectIndex === currentProjectIndex){
+                ;
+            }
+            else{
+                currentProjectIndex = clickedProjectIndex;
+                domChanger.updateRightSide( projectList[currentProjectIndex] );
+                
+            }
+            
+        });
+        let todoList = savedLocal[i].todoList;
+
+        for( let j = 0 ; j < todoList.length ; j++){
+            let title = todoList[j].title
+            let dueDate = todoList[j].dueDate
+            let priority = todoList[j].priority
+            let description = todoList[j].description
+
+
+            let newTodo = new TodoItem( title, description, dueDate, priority );
+            projectList[i].todoList.push(newTodo);
+
+        }
+    }
+
+}
+
+
+
+
 
 let addProjectButton = document.querySelector('.iconAddProject');
 addProjectButton.addEventListener('click', () =>{
