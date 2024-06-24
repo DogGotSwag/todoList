@@ -436,12 +436,18 @@ let DOM_Module = (function (index) {
         }
     };
 
+    let clearRightSide = ( newHeader ) => {
+        removeTodoFormButton();
+        updateRightHeader( newHeader );
+        updateToDoSection([]);
+    }
+
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
         updatePriorityMarker, updateTitle, updateDueDate,
-        removeTodo
+        removeTodo, clearRightSide
     };
 }
 )();

@@ -92,7 +92,7 @@ function deleteProjectListner( index ){
             let index = classes[1].split("")[1];
 
             if( index == currentProjectIndex ){
-                domChanger.removeTodoFormButton();
+                domChanger.clearRightSide('deleted :]');
                 currentProjectIndex = undefined;
             }
             else if( index < currentProjectIndex){
@@ -109,7 +109,6 @@ function deleteProjectListner( index ){
                 localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
             }
             event.stopPropagation();
-            console.log(currentProjectIndex);
         });
 }
 
@@ -227,7 +226,6 @@ let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
     currentProjectIndex = undefined;
     domChanger.removeTodoFormButton();
-    console.log(projectList);
 });
 
 let addToButton = document.querySelector(".addTodoIcon");
