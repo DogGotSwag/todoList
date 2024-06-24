@@ -170,6 +170,8 @@ else {
 
 }
 
+domChanger.setupAllTodoProject( projectList );
+
 
 let addProjectButton = document.querySelector('.iconAddProject');
 addProjectButton.addEventListener('click', () =>{
