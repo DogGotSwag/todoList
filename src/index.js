@@ -2,13 +2,14 @@ import './style.css';
 import domChanger from './DOMscript';
 
 class TodoItem{
-    constructor( title, description, dueDate, priority){
+    constructor( title, description, dueDate, priority, ...args){
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.notes = "";
+        this.notes = !( args[0] ) ? '': args[0];
         this.done = false;
+
     }
 }
 
@@ -145,13 +146,14 @@ if (!localStorage.getItem("localProjectList")) {
         let todoList = savedLocal[i].todoList;
 
         for( let j = 0 ; j < todoList.length ; j++){
-            let title = todoList[j].title
-            let dueDate = todoList[j].dueDate
-            let priority = todoList[j].priority
-            let description = todoList[j].description
+            let title = todoList[j].title;
+            let dueDate = todoList[j].dueDate;
+            let priority = todoList[j].priority;
+            let description = todoList[j].description;
+            let notes = todoList[j].notes;
 
 
-            let newTodo = new TodoItem( title, description, dueDate, priority );
+            let newTodo = new TodoItem( title, description, dueDate, priority , notes );
             projectList[i].todoList.push(newTodo);
 
         }
