@@ -125,11 +125,13 @@ let DOM_Module = (function (index) {
 
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
-            if( key.done == ""){
+            if( key.dueDate == ""){
+                console.log('one');
                 dueDate.innerText = "No Due Date";
             }
             else{
                 dueDate.innerText = key.dueDate;
+                console.log('two');
             }
 
             let div = document.createElement('div');
@@ -473,7 +475,7 @@ let DOM_Module = (function (index) {
 
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
-            if( key.done == ""){
+            if( key.dueDate == ""){
                 dueDate.innerText = "No Due Date";
             }
             else{

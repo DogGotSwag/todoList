@@ -51,7 +51,6 @@ function setTodoButtonsListners(){
             }
                 
                 projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
-                console.log( typeof(newNotes) );
                 projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
 
                 localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
