@@ -126,12 +126,10 @@ let DOM_Module = (function (index) {
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
             if( key.dueDate == ""){
-                console.log('one');
                 dueDate.innerText = "No Due Date";
             }
             else{
                 dueDate.innerText = key.dueDate;
-                console.log('two');
             }
 
             let div = document.createElement('div');
@@ -441,8 +439,6 @@ let DOM_Module = (function (index) {
     };
     
     let nonEditableTodo = ( todoList ) => {
-        let allTodosContainer = right.firstElementChild.nextElementSibling; 
-        allTodosContainer.innerHTML = "";
         let ul = document.createElement('ul');
         todoList.forEach( (key,index) => {
             let li = document.createElement('li');
@@ -598,14 +594,17 @@ let DOM_Module = (function (index) {
 
         });
 
-        allTodosContainer.appendChild(ul);
+        return ul;
     }
 
     let setupAllTodoProject = ( projectList ) => {
         removeTodoFormButton();
         updateRightHeader( 'All Todos' );
+        let allTodosContainer = right.firstElementChild.nextElementSibling; 
+        allTodosContainer.innerHTML = "";
         for( let i = 0; i< projectList.length; i++){
-            nonEditableTodo( projectList[i].todoList );
+           let ul = nonEditableTodo( projectList[i].todoList);
+           allTodosContainer.appendChild( ul );
         }
     };
 

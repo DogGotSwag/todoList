@@ -224,6 +224,7 @@ let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
     currentProjectIndex = undefined;
     domChanger.setupAllTodoProject( projectList );
+    console.log( projectList );
 });
 
 let addToButton = document.querySelector(".addTodoIcon");
