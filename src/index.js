@@ -8,8 +8,7 @@ class TodoItem{
         this.dueDate = dueDate;
         this.priority = priority;
         this.notes = !( args[0] ) ? '': args[0];
-        this.done = false;
-
+        this.done = !( args[1] ) ? false: true;
     }
 }
 
@@ -25,10 +24,9 @@ let currentProjectIndex;
 
 
 function setTodoButtonsListners(){
-    console.log("call");
         let sumbits = document.querySelectorAll('.editButtonsSection .editSubmit');
         for(let i = 0; i < sumbits.length; i++){
-        sumbits[i].addEventListener('click', (event) => {
+            sumbits[i].addEventListener('click', (event) => {
             let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
             let newTitle = event.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.value;
             let newDueDate = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.value;
@@ -151,9 +149,10 @@ if (!localStorage.getItem("localProjectList")) {
             let priority = todoList[j].priority;
             let description = todoList[j].description;
             let notes = todoList[j].notes;
+            let done = todoList[j].done;
 
 
-            let newTodo = new TodoItem( title, description, dueDate, priority , notes );
+            let newTodo = new TodoItem( title, description, dueDate, priority , notes , done);
             projectList[i].todoList.push(newTodo);
 
         }

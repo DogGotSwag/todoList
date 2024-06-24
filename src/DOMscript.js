@@ -81,7 +81,6 @@ let DOM_Module = (function (index) {
 
 
     let updateRightSide = (project) => {
-        console.log( project);
         updateRightHeader(project.title);
         updateToDoSection(project.todoList);
         addTodoButton();
@@ -108,6 +107,13 @@ let DOM_Module = (function (index) {
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
+            if( key.done === true){
+                checkbox.setAttribute('checked', 'true');
+                console.log('true');
+            }
+            else{
+                console.log("false");
+            }
             checkbox.id = `todoCheck_${index}`
             
 
@@ -123,7 +129,7 @@ let DOM_Module = (function (index) {
 
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
-            if( key.dueDate == ""){
+            if( key.done == ""){
                 dueDate.innerText = "No Due Date";
             }
             else{
@@ -211,7 +217,6 @@ let DOM_Module = (function (index) {
             let notesLabel = document.createElement('label');
             notesLabel.innerText = "Notes";
             let notesInput = document.createElement('textarea');
-            console.log(key.notes);
             notesInput.value = key.notes;
             divFive.appendChild(notesLabel);
             divFive.appendChild(notesInput);
