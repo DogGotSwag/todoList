@@ -86,11 +86,14 @@ function setTodoButtonsListners(){
 function deleteProjectListner( index ){
     let xButton = document.querySelector( `.project._${index} img` );
         xButton.addEventListener("click", (event) => {
+            
+
             let classes = event.target.parentNode.classList;
             let index = classes[1].split("")[1];
 
             if( index == currentProjectIndex ){
                 domChanger.removeTodoFormButton();
+                currentProjectIndex = undefined;
             }
             else if( index < currentProjectIndex){
                 currentProjectIndex--;
@@ -99,12 +102,14 @@ function deleteProjectListner( index ){
             projectList.splice( index, 1);
             domChanger.removeProject(classes[1])
             if( projectList.length == 0 ){
+                currentProjectIndex = undefined
                 localStorage.clear();
             }
             else{
                 localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
             }
             event.stopPropagation();
+            console.log(currentProjectIndex);
         });
 }
 
@@ -222,6 +227,7 @@ let allTodoProject = document.querySelector('.allTodoProject');
 allTodoProject.addEventListener( 'click', () =>{
     currentProjectIndex = undefined;
     domChanger.removeTodoFormButton();
+    console.log(projectList);
 });
 
 let addToButton = document.querySelector(".addTodoIcon");
