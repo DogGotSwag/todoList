@@ -172,9 +172,6 @@ else {
 }
 
 
-
-
-
 let addProjectButton = document.querySelector('.iconAddProject');
 addProjectButton.addEventListener('click', () =>{
 
