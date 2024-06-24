@@ -109,10 +109,6 @@ let DOM_Module = (function (index) {
             checkbox.classList.add('checkBox');
             if( key.done === true){
                 checkbox.setAttribute('checked', 'true');
-                console.log('true');
-            }
-            else{
-                console.log("false");
             }
             checkbox.id = `todoCheck_${index}`
             
