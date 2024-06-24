@@ -352,6 +352,10 @@ textarea{
     height: 472px;
 }
 
+.todoLi.expand.nonEditMode{
+    height: 439px ;
+}
+
 .todoLi.low{
     border-right: 10px solid #f9e54e;
 }

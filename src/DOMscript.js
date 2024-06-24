@@ -438,14 +438,173 @@ let DOM_Module = (function (index) {
         updateToDoSection([]);
     };
     
-    let nonEditableTodo = () => {
-        
+    let nonEditableTodo = ( todoList ) => {
+        let allTodosContainer = right.firstElementChild.nextElementSibling; 
+        allTodosContainer.innerHTML = "";
+        let ul = document.createElement('ul');
+        todoList.forEach( (key,index) => {
+            let li = document.createElement('li');
+            li.classList.add('todoLi');
+            li.classList.add('nonEditMode');
+            li.id = `todo_${index}`;
+
+            let topContainer = document.createElement('div');
+            topContainer.classList.add('topContainer');
+
+            let checkbox = document.createElement('input');
+            checkbox.setAttribute('type', 'checkbox');
+            checkbox.classList.add('checkBox');
+            checkbox.disabled = true;
+            if( key.done === true){
+                checkbox.setAttribute('checked', 'true');
+            }
+            checkbox.id = `todoCheck_${index}`
+            
+
+            let p = document.createElement('p');
+            p.classList.add('todoTitleP');
+            p.innerText = key.title;
+            
+            let label = document.createElement('label');
+            label.classList.add('todoLabel');
+            label.setAttribute('for', `todoCheck_${index}`);
+            label.setAttribute('name' ,`todo_${index}`);
+            label.appendChild(p);
+
+            let dueDate = document.createElement('p');
+            dueDate.classList.add('dueDateP');
+            if( key.done == ""){
+                dueDate.innerText = "No Due Date";
+            }
+            else{
+                dueDate.innerText = key.dueDate;
+            }
+
+            let div = document.createElement('div');
+            div.classList.add('dropDownContainer');
+
+            let img = new Image();
+            img.src = dropDown;
+            div.appendChild(img);
+            img.classList.add('dropDownIcon');
+
+            
+            
+
+            topContainer.appendChild(checkbox)
+            topContainer.appendChild(label);
+            topContainer.appendChild(dueDate);
+            topContainer.appendChild(div);
+
+
+            let editForm = document.createElement('form');
+            editForm.classList.add('editTodoForm');
+
+            let divOne = document.createElement('div');
+            divOne.classList.add('todoEditDiv');
+            let titleLabel = document.createElement('label');
+            titleLabel.innerText = "Title";
+            titleLabel.setAttribute(`for`, `titleEdit${index}`);
+            let titleInput = document.createElement('input');
+            titleInput.setAttribute('type', 'text');
+            titleInput.value = key.title;
+            titleInput.id = `titleEdit${index}`;
+            titleInput.readOnly = true;
+
+            divOne.appendChild(titleLabel);
+            divOne.appendChild(titleInput);
+
+            let divTwo = document.createElement('div');
+            divTwo.classList.add('todoEditDiv');
+            let dueDateLabel = document.createElement('label');
+            dueDateLabel.innerText = "Due Date";
+            dueDateLabel.setAttribute('for', `dueEdit${index}`);
+            let dueDateInput = document.createElement('input');
+            dueDateInput.setAttribute('type', 'date');
+            dueDateInput.id = `dueEdit${index}`;
+            dueDateInput.defaultValue = key.dueDate;
+            dueDateInput.readOnly = true;
+
+            divTwo.appendChild(dueDateLabel);
+            divTwo.appendChild(dueDateInput);
+
+            let divThree = document.createElement('div');
+            divThree.classList.add('todoEditDiv');
+            let priorityLabel = document.createElement('label');
+            priorityLabel.innerText = "Priority"
+            priorityLabel.setAttribute('for', `priorityEdit${index}`);
+            let priorityInput = document.createElement('input');
+            priorityInput.id = `priorityEdit${index}`;
+            priorityInput.value = key.priority;
+            priorityInput.readOnly = true;
+
+
+            
+            divThree.appendChild(priorityLabel);
+            divThree.appendChild(priorityInput);
+            
+            let divFour = document.createElement('div');
+            divFour.classList.add('todoEditDiv');
+            divFour.classList.add('todoEditLastDiv');
+            let desLabel = document.createElement('label');
+            desLabel.innerText = "Description";
+            let desInput = document.createElement('textarea');
+            desInput.readOnly = true;
+
+            desInput.value = key.description;
+            divFour.appendChild(desLabel);
+            divFour.appendChild(desInput);
+
+            let divFive = document.createElement('div');
+            divFive.classList.add('todoEditDiv');
+            divFive.classList.add('todoEditLastDiv');
+            let notesLabel = document.createElement('label');
+            notesLabel.innerText = "Notes";
+            let notesInput = document.createElement('textarea');
+            notesInput.readOnly = true;
+            
+            notesInput.value = key.notes;
+            divFive.appendChild(notesLabel);
+            divFive.appendChild(notesInput);
+
+            editForm.appendChild(divOne);
+            editForm.appendChild(divTwo);
+            editForm.appendChild(divThree);
+            editForm.appendChild(divFour);
+            editForm.appendChild(divFive);
+
+
+            li.appendChild(topContainer);
+            li.appendChild(editForm);
+
+            li.classList.add(`${key.priority}`);
+            ul.appendChild(li);
+
+            div.addEventListener('click', () => {
+                let liClasses = Array.from( li.classList);
+                if( liClasses.includes("expand") ){
+                    li.classList.remove('expand');
+                    img.src = dropDown;
+                    editForm.classList.remove('visible');
+                }
+                else{
+                    li.classList.add('expand');
+                    img.src = up;
+                    editForm.classList.add('visible');
+                }
+            });
+
+        });
+
+        allTodosContainer.appendChild(ul);
     }
 
     let setupAllTodoProject = ( projectList ) => {
         removeTodoFormButton();
         updateRightHeader( 'All Todos' );
-        
+        for( let i = 0; i< projectList.length; i++){
+            nonEditableTodo( projectList[i].todoList );
+        }
     };
 
     return {
