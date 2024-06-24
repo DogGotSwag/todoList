@@ -436,14 +436,24 @@ let DOM_Module = (function (index) {
         removeTodoFormButton();
         updateRightHeader( newHeader );
         updateToDoSection([]);
+    };
+    
+    let nonEditableTodo = () => {
+        
     }
+
+    let setupAllTodoProject = ( projectList ) => {
+        removeTodoFormButton();
+        updateRightHeader( 'All Todos' );
+        
+    };
 
     return {
         addProject, projectForm, removeProjectForm, 
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
         updatePriorityMarker, updateTitle, updateDueDate,
-        removeTodo, clearRightSide
+        removeTodo, clearRightSide, setupAllTodoProject,
     };
 }
 )();
