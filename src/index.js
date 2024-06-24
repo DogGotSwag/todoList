@@ -23,6 +23,68 @@ let projectList = [];
 let currentProjectIndex;
 
 
+function setTodoButtonsListners(){
+    console.log("call");
+        let sumbits = document.querySelectorAll('.editButtonsSection .editSubmit');
+        for(let i = 0; i < sumbits.length; i++){
+        sumbits[i].addEventListener('click', (event) => {
+            let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
+            let newTitle = event.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.value;
+            let newDueDate = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.value;
+            let newPriority = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+            let newDes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+            let newNotes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
+
+                
+            if( !(projectList[currentProjectIndex].todoList[todoIndex].title === newTitle) ){
+                domChanger.updateTitle(todoIndex, newTitle);
+                projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
+            }
+                
+            if( !(projectList[currentProjectIndex].todoList[todoIndex].dueDate === newDueDate) ){
+                domChanger.updateDueDate( todoIndex, newDueDate);
+                projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
+            }
+                
+            if( !(projectList[currentProjectIndex].todoList[todoIndex].priority == newPriority)){
+                domChanger.updatePriorityMarker(todoIndex , projectList[currentProjectIndex].todoList[todoIndex].priority, newPriority);
+                projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;
+            }
+                
+                projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
+                console.log( typeof(newNotes) );
+                projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
+
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            });
+        }
+
+    let checkboxes = document.querySelectorAll('.todoLi .checkBox');
+    for(let i = 0; i < checkboxes.length; i++){
+        checkboxes[i].addEventListener( 'change' , ( event) =>{
+            let todoIndex = event.target.parentNode.parentNode.id.split('_')[1];
+            if (event.target.checked) {
+                projectList[currentProjectIndex].todoList[todoIndex].done = true;
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            } else {
+                projectList[currentProjectIndex].todoList[todoIndex].done = false;
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            }
+        });
+    }
+
+    let deleteButtons = document.querySelectorAll('.editButtonsSection .editDelete');
+    for( let i = 0; i < deleteButtons.length ; i++){
+        deleteButtons[i].addEventListener( 'click' , ( event) => {
+            let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
+            projectList[currentProjectIndex].todoList.splice( todoIndex, 1);
+            domChanger.removeTodo( todoIndex);
+            localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+        });
+    }
+}
+
+
 if (!localStorage.getItem("localProjectList")) {
     console.log('not exist');
     localStorage.setItem("localProjectList", 9001);
@@ -78,7 +140,7 @@ if (!localStorage.getItem("localProjectList")) {
                 domChanger.updateRightSide( projectList[currentProjectIndex] );
                 
             }
-            
+            setTodoButtonsListners()
         });
         let todoList = savedLocal[i].todoList;
 
@@ -188,90 +250,7 @@ addToButton.addEventListener( 'click', () =>{
 
 
         //code goes here
-        let sumbits = document.querySelectorAll('.editButtonsSection .editSubmit');
-        
-        for(let i = 0; i < sumbits.length; i++){
-            sumbits[i].addEventListener('click', (event) => {
-                let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
-                let newTitle = event.target.parentNode.parentNode.firstElementChild.firstElementChild.nextElementSibling.value;
-                let newDueDate = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.firstElementChild.nextElementSibling.value;
-                let newPriority = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
-                let newDes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
-                let newNotes = event.target.parentNode.parentNode.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.firstElementChild.nextElementSibling.value;
-
-                
-                if( !(projectList[currentProjectIndex].todoList[todoIndex].title === newTitle) ){
-                    domChanger.updateTitle(todoIndex, newTitle);
-                    projectList[currentProjectIndex].todoList[todoIndex].title = newTitle;
-                }
-                
-                if( !(projectList[currentProjectIndex].todoList[todoIndex].dueDate === newDueDate) ){
-                    domChanger.updateDueDate( todoIndex, newDueDate);
-                    projectList[currentProjectIndex].todoList[todoIndex].dueDate = newDueDate;
-                }
-                
-                if( !(projectList[currentProjectIndex].todoList[todoIndex].priority == newPriority)){
-                    domChanger.updatePriorityMarker(todoIndex , projectList[currentProjectIndex].todoList[todoIndex].priority, newPriority);
-                    projectList[currentProjectIndex].todoList[todoIndex].priority = newPriority;
-                }
-                
-                projectList[currentProjectIndex].todoList[todoIndex].description = newDes;
-                projectList[currentProjectIndex].todoList[todoIndex].notes = newNotes;
-                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
-            });
-        }
-
-        let checkboxes = document.querySelectorAll('.todoLi .checkBox');
-        for(let i = 0; i < checkboxes.length; i++){
-            checkboxes[i].addEventListener( 'change' , ( event) =>{
-                let todoIndex = event.target.parentNode.parentNode.id.split('_')[1];
-                if (event.target.checked) {
-                    projectList[currentProjectIndex].todoList[todoIndex].done = true;
-                    localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
-                } else {
-                    projectList[currentProjectIndex].todoList[todoIndex].done = false;
-                    localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
-                }
-            });
-        }
-
-        let deleteButtons = document.querySelectorAll('.editButtonsSection .editDelete');
-        for( let i = 0; i < deleteButtons.length ; i++){
-            deleteButtons[i].addEventListener( 'click' , ( event) => {
-                let todoIndex = event.target.parentNode.parentNode.parentNode.id.split('_')[1];
-                projectList[currentProjectIndex].todoList.splice( todoIndex, 1);
-                domChanger.removeTodo( todoIndex);
-                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
-            });
-        }
+        setTodoButtonsListners();
 
     });                
 });
-
-
-
-// for( let i = 0; i < 1; i++){
-//     let addProject = document.querySelector(".iconAddProject");
-//     addProject.click();
-
-//     let projectIn = document.querySelector('.projectInput');
-//     projectIn.value = "DD";
-
-//     let projButton = document.querySelector(".projectButton");
-//     projButton.click();
-
-//     let testProject = document.querySelector(`._${i}`);
-//     testProject.click();
-
-//     for( let j = 0; j < 5; j++){
-//         let tButt = document.querySelector('.addTodoIcon.active');
-//         tButt.click();
-
-//         let tIn = document.querySelector('.inputTitle');
-//         tIn.value = `test${j}`;
-
-//         let add = document.querySelector('.todoFormButton.todoAddButton');
-//         add.click();
-//     }
-    
-// }

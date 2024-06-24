@@ -211,6 +211,7 @@ let DOM_Module = (function (index) {
             let notesLabel = document.createElement('label');
             notesLabel.innerText = "Notes";
             let notesInput = document.createElement('textarea');
+            console.log(key.notes);
             notesInput.value = key.notes;
             divFive.appendChild(notesLabel);
             divFive.appendChild(notesInput);
