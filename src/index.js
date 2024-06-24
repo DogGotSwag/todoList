@@ -83,22 +83,8 @@ function setTodoButtonsListners(){
     }
 }
 
-
-if (!localStorage.getItem("localProjectList")) {
-    console.log('not exist');
-    localStorage.setItem("localProjectList", 9001);
-} else {
-
-    let savedLocal =  JSON.parse(localStorage.getItem('localProjectList'));
-    
-    for( let i = 0 ; i < savedLocal.length ; i++){
-        let newProjectIndex = projectList.length;
-        domChanger.addProject( savedLocal[i].title, newProjectIndex);
-        let newProject = new Project( savedLocal[i].title );
-        projectList.push(newProject);
-        
-
-        let xButton = document.querySelector( `.project._${newProjectIndex} img` );
+function deleteProjectListner( index ){
+    let xButton = document.querySelector( `.project._${index} img` );
         xButton.addEventListener("click", (event) => {
             let classes = event.target.parentNode.classList;
             let index = classes[1].split("")[1];
@@ -111,10 +97,31 @@ if (!localStorage.getItem("localProjectList")) {
             }
 
             projectList.splice( index, 1);
-            domChanger.removeProject(classes[1]);
-            localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            domChanger.removeProject(classes[1])
+            if( projectList.length == 0 ){
+                localStorage.clear();
+            }
+            else{
+                localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
+            }
             event.stopPropagation();
         });
+}
+
+
+if (!localStorage.getItem("localProjectList")) {
+
+} 
+else {
+
+    let savedLocal =  JSON.parse(localStorage.getItem('localProjectList'));
+    
+    for( let i = 0 ; i < savedLocal.length ; i++){
+        let newProjectIndex = projectList.length;
+        domChanger.addProject( savedLocal[i].title, newProjectIndex);
+        let newProject = new Project( savedLocal[i].title );
+        projectList.push(newProject);
+        deleteProjectListner( newProjectIndex );
 
         let project = document.querySelector( `.project._${newProjectIndex}` );
         
@@ -181,23 +188,7 @@ addProjectButton.addEventListener('click', () =>{
         domChanger.addProject( projectName, newProjectIndex);
         domChanger.removeProjectForm();
 
-        let xButton = document.querySelector( `.project._${newProjectIndex} img` );
-        xButton.addEventListener("click", (event) => {
-            let classes = event.target.parentNode.classList;
-            let index = classes[1].split("")[1];
-
-            if( index == currentProjectIndex ){
-                domChanger.removeTodoFormButton();
-            }
-            else if( index < currentProjectIndex){
-                currentProjectIndex--;
-            }
-
-            projectList.splice( index, 1);
-            domChanger.removeProject(classes[1]);
-            localStorage.setItem( "localProjectList" , JSON.stringify( projectList) );
-            event.stopPropagation();
-        });
+        deleteProjectListner( newProjectIndex );
 
         let project = document.querySelector( `.project._${newProjectIndex}` );
         
