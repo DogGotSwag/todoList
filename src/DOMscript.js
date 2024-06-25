@@ -14,6 +14,13 @@ let DOM_Module = (function () {
         leftSideHeader.appendChild(img);
     };
 
+    let setAddTodoIconImg = () => {
+        let button = document.querySelector('.addTodoIcon');
+        let img = document.createElement( 'img' );
+        img.src = projectAddIcon;
+        button.appendChild( img );
+    };
+
     let projectArea = document.querySelector('.projectsArea');
     let addProject = (insideText, index) => {
         let li = document.createElement('li');
@@ -636,7 +643,7 @@ let DOM_Module = (function () {
         updatePriorityMarker, updateTitle, updateDueDate,
         removeTodo, clearRightSide, setupAllTodoProject,
         removeHeaderMargin, removeHeaderMargin,
-        setProjectAddSrc
+        setProjectAddSrc, setAddTodoIconImg
     };
 }
 )();
