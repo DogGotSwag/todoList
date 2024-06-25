@@ -7,9 +7,11 @@ import projectAddIcon from "./../img/plus-box-outline.svg"
 let DOM_Module = (function () {
 
     let setProjectAddSrc = () => {
-        console.log("Hello");
-        let icon = document.querySelector('.iconAddProject');
-        icon.src = projectAddIcon;
+        let leftSideHeader = document.querySelector('.leftSideHeader');
+        let img = document.createElement('img');
+        img.classList.add('iconAddProject');
+        img.src = projectAddIcon;
+        leftSideHeader.appendChild(img);
     };
 
     let projectArea = document.querySelector('.projectsArea');
