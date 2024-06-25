@@ -21,7 +21,7 @@ class Project{
 
 let projectList = [];
 let currentProjectIndex;
-
+domChanger.setProjectAddSrc();
 
 function setTodoButtonsListners(){
         let sumbits = document.querySelectorAll('.editButtonsSection .editSubmit');

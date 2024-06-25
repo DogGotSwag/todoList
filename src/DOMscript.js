@@ -2,8 +2,16 @@ import './style.css';
 import xImg from './../img/close-thick.svg';
 import dropDown from "./../img/downArrow.svg";
 import up from "./../img/upArrow.svg";
+import projectAddIcon from "./../img/plus-box-outline.svg"
 
-let DOM_Module = (function (index) {
+let DOM_Module = (function () {
+
+    let setProjectAddSrc = () => {
+        console.log("Hello");
+        let icon = document.querySelector('.iconAddProject');
+        icon.src = projectAddIcon;
+    };
+
     let projectArea = document.querySelector('.projectsArea');
     let addProject = (insideText, index) => {
         let li = document.createElement('li');
@@ -625,7 +633,8 @@ let DOM_Module = (function (index) {
         addTodoForm, removeTodoForm, removeTodoFormButton,
         updatePriorityMarker, updateTitle, updateDueDate,
         removeTodo, clearRightSide, setupAllTodoProject,
-        removeHeaderMargin, removeHeaderMargin
+        removeHeaderMargin, removeHeaderMargin,
+        setProjectAddSrc
     };
 }
 )();
