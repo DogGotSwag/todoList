@@ -1,7 +1,7 @@
 import './style.css';
-import xImg from '../img/close-thick.svg';
-import dropDown from "../img/downArrow.svg";
-import up from "../img/upArrow.svg";
+import xImg from './../img/close-thick.svg';
+import dropDown from "./../img/downArrow.svg";
+import up from "./../img/upArrow.svg";
 
 let DOM_Module = (function (index) {
     let projectArea = document.querySelector('.projectsArea');
