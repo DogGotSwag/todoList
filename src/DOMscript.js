@@ -54,7 +54,7 @@ let DOM_Module = (function (index) {
 
         leftSide.appendChild(formContainer);
 
-        cancel.addEventListener('click' , () => {
+        cancel.addEventListener('click', () => {
             removeProjectForm();
         });
     };
@@ -93,10 +93,10 @@ let DOM_Module = (function (index) {
     let right = document.querySelector('.right');
 
     let updateToDoSection = (todoList) => {
-        let allTodosContainer = right.firstElementChild.nextElementSibling; 
+        let allTodosContainer = right.firstElementChild.nextElementSibling;
         allTodosContainer.innerHTML = "";
         let ul = document.createElement('ul');
-        todoList.forEach( (key,index) => {
+        todoList.forEach((key, index) => {
             let li = document.createElement('li');
             li.classList.add('todoLi');
             li.id = `todo_${index}`;
@@ -107,28 +107,28 @@ let DOM_Module = (function (index) {
             let checkbox = document.createElement('input');
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
-            if( key.done === true){
+            if (key.done === true) {
                 checkbox.setAttribute('checked', 'true');
             }
             checkbox.id = `todoCheck_${index}`
-            
+
 
             let p = document.createElement('p');
             p.classList.add('todoTitleP');
             p.innerText = key.title;
-            
+
             let label = document.createElement('label');
             label.classList.add('todoLabel');
             label.setAttribute('for', `todoCheck_${index}`);
-            label.setAttribute('name' ,`todo_${index}`);
+            label.setAttribute('name', `todo_${index}`);
             label.appendChild(p);
 
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
-            if( key.dueDate == ""){
+            if (key.dueDate == "") {
                 dueDate.innerText = "No Due Date";
             }
-            else{
+            else {
                 dueDate.innerText = key.dueDate;
             }
 
@@ -140,8 +140,8 @@ let DOM_Module = (function (index) {
             div.appendChild(img);
             img.classList.add('dropDownIcon');
 
-            
-            
+
+
 
             topContainer.appendChild(checkbox)
             topContainer.appendChild(label);
@@ -184,19 +184,19 @@ let DOM_Module = (function (index) {
             priorityLabel.setAttribute('for', `priorityEdit${index}`);
             let priorityInput = document.createElement('select');
             priorityInput.id = `priorityEdit${index}`;
-            let selectOptions = ['low','medium', 'high'];
+            let selectOptions = ['low', 'medium', 'high'];
 
-            selectOptions.forEach( op => {
+            selectOptions.forEach(op => {
                 let option = document.createElement('option');
                 option.innerText = op;
-                if( key.priority == op){
-                    option.setAttribute('selected','selected' );
+                if (key.priority == op) {
+                    option.setAttribute('selected', 'selected');
                 }
                 priorityInput.appendChild(option);
             });
             divThree.appendChild(priorityLabel);
             divThree.appendChild(priorityInput);
-            
+
             let divFour = document.createElement('div');
             divFour.classList.add('todoEditDiv');
             divFour.classList.add('todoEditLastDiv');
@@ -238,13 +238,13 @@ let DOM_Module = (function (index) {
                 desInput.value = key.description;
                 notesInput.value = key.notes;
 
-                if( key.priority == 'low'){
+                if (key.priority == 'low') {
                     priorityInput.selectedIndex = 0;
                 }
-                else if( key.priority == "medium"){
+                else if (key.priority == "medium") {
                     priorityInput.selectedIndex = 1;
                 }
-                else{
+                else {
                     priorityInput.selectedIndex = 2;
                 }
             });
@@ -266,7 +266,7 @@ let DOM_Module = (function (index) {
             editForm.appendChild(divSix);
 
 
-            
+
 
 
             li.appendChild(topContainer);
@@ -276,13 +276,13 @@ let DOM_Module = (function (index) {
             ul.appendChild(li);
 
             div.addEventListener('click', () => {
-                let liClasses = Array.from( li.classList);
-                if( liClasses.includes("expand") ){
+                let liClasses = Array.from(li.classList);
+                if (liClasses.includes("expand")) {
                     li.classList.remove('expand');
                     img.src = dropDown;
                     editForm.classList.remove('visible');
                 }
-                else{
+                else {
                     li.classList.add('expand');
                     img.src = up;
                     editForm.classList.add('visible');
@@ -336,9 +336,9 @@ let DOM_Module = (function (index) {
         labelPriority.innerText = "Priorty";
         let inputPriority = document.createElement('select');
 
-        let selectOptions = ['low','medium', 'high'];
+        let selectOptions = ['low', 'medium', 'high'];
 
-        selectOptions.forEach( op => {
+        selectOptions.forEach(op => {
             let option = document.createElement('option');
             option.innerText = op;
             inputPriority.appendChild(option);
@@ -356,13 +356,13 @@ let DOM_Module = (function (index) {
         liFour.appendChild(inputDes);
 
         let addButton = document.createElement('button');
-        addButton.setAttribute('type','button');
+        addButton.setAttribute('type', 'button');
         addButton.classList.add('todoFormButton')
         addButton.classList.add('todoAddButton')
         addButton.innerText = 'Add';
 
         let cancelButton = document.createElement('button');
-        cancelButton.setAttribute('type','button');
+        cancelButton.setAttribute('type', 'button');
         cancelButton.classList.add('todoFormButton')
         cancelButton.classList.add('todoCancelButton')
         cancelButton.innerText = 'Cancel';
@@ -377,12 +377,12 @@ let DOM_Module = (function (index) {
         div.appendChild(header);
         div.appendChild(list);
 
-        cancelButton.addEventListener( 'click' , () =>{
+        cancelButton.addEventListener('click', () => {
             removeTodoForm();
         });
     }
 
-    let removeTodoForm = () =>{
+    let removeTodoForm = () => {
         let form = document.querySelector('.todoForm');
         right.removeChild(form);
     }
@@ -393,31 +393,31 @@ let DOM_Module = (function (index) {
 
         addTodoButton.classList.remove('active');
 
-        if( checkTwo != null ){
+        if (checkTwo != null) {
             removeTodoForm();
         }
-        
+
     };
 
-    let updatePriorityMarker = ( index, oldPriority, newPriority) => {
-        let todoLi = document.querySelector(`#todo_${index}`); 
+    let updatePriorityMarker = (index, oldPriority, newPriority) => {
+        let todoLi = document.querySelector(`#todo_${index}`);
         todoLi.classList.remove(oldPriority);
         todoLi.classList.add(newPriority);
     };
 
-    let updateTitle = ( index , newTitle ) => {
-        let todoTitle = document.querySelector(`#todo_${index} .todoTitleP`); 
+    let updateTitle = (index, newTitle) => {
+        let todoTitle = document.querySelector(`#todo_${index} .todoTitleP`);
         todoTitle.innerText = newTitle;
-    }; 
+    };
 
-    let updateDueDate = ( index , newDueDate) => {
-        let todoDue = document.querySelector( `#todo_${index} .dueDateP`);
-        todoDue.innerText = (newDueDate == "") ? "No Due Date" : newDueDate; 
-        
+    let updateDueDate = (index, newDueDate) => {
+        let todoDue = document.querySelector(`#todo_${index} .dueDateP`);
+        todoDue.innerText = (newDueDate == "") ? "No Due Date" : newDueDate;
+
     };
 
     let removeTodo = (index) => {
-        let todoToBeRemoved = document.querySelector( `#todo_${index}`);
+        let todoToBeRemoved = document.querySelector(`#todo_${index}`);
         let containers = document.querySelector('.allTodos ul');
         containers.removeChild(todoToBeRemoved);
 
@@ -432,15 +432,15 @@ let DOM_Module = (function (index) {
         }
     };
 
-    let clearRightSide = ( newHeader ) => {
+    let clearRightSide = (newHeader) => {
         removeTodoFormButton();
-        updateRightHeader( newHeader );
+        updateRightHeader(newHeader);
         updateToDoSection([]);
     };
-    
-    let nonEditableTodo = ( todoList ) => {
+
+    let nonEditableTodo = (todoList) => {
         let ul = document.createElement('ul');
-        todoList.forEach( (key,index) => {
+        todoList.forEach((key, index) => {
             let li = document.createElement('li');
             li.classList.add('todoLi');
             li.classList.add('nonEditMode');
@@ -453,28 +453,28 @@ let DOM_Module = (function (index) {
             checkbox.setAttribute('type', 'checkbox');
             checkbox.classList.add('checkBox');
             checkbox.disabled = true;
-            if( key.done === true){
+            if (key.done === true) {
                 checkbox.setAttribute('checked', 'true');
             }
             checkbox.id = `todoCheck_${index}`
-            
+
 
             let p = document.createElement('p');
             p.classList.add('todoTitleP');
             p.innerText = key.title;
-            
+
             let label = document.createElement('label');
             label.classList.add('todoLabel');
             label.setAttribute('for', `todoCheck_${index}`);
-            label.setAttribute('name' ,`todo_${index}`);
+            label.setAttribute('name', `todo_${index}`);
             label.appendChild(p);
 
             let dueDate = document.createElement('p');
             dueDate.classList.add('dueDateP');
-            if( key.dueDate == ""){
+            if (key.dueDate == "") {
                 dueDate.innerText = "No Due Date";
             }
-            else{
+            else {
                 dueDate.innerText = key.dueDate;
             }
 
@@ -486,8 +486,8 @@ let DOM_Module = (function (index) {
             div.appendChild(img);
             img.classList.add('dropDownIcon');
 
-            
-            
+
+
 
             topContainer.appendChild(checkbox)
             topContainer.appendChild(label);
@@ -537,10 +537,10 @@ let DOM_Module = (function (index) {
             priorityInput.readOnly = true;
 
 
-            
+
             divThree.appendChild(priorityLabel);
             divThree.appendChild(priorityInput);
-            
+
             let divFour = document.createElement('div');
             divFour.classList.add('todoEditDiv');
             divFour.classList.add('todoEditLastDiv');
@@ -560,7 +560,7 @@ let DOM_Module = (function (index) {
             notesLabel.innerText = "Notes";
             let notesInput = document.createElement('textarea');
             notesInput.readOnly = true;
-            
+
             notesInput.value = key.notes;
             divFive.appendChild(notesLabel);
             divFive.appendChild(notesInput);
@@ -579,13 +579,13 @@ let DOM_Module = (function (index) {
             ul.appendChild(li);
 
             div.addEventListener('click', () => {
-                let liClasses = Array.from( li.classList);
-                if( liClasses.includes("expand") ){
+                let liClasses = Array.from(li.classList);
+                if (liClasses.includes("expand")) {
                     li.classList.remove('expand');
                     img.src = dropDown;
                     editForm.classList.remove('visible');
                 }
-                else{
+                else {
                     li.classList.add('expand');
                     img.src = up;
                     editForm.classList.add('visible');
@@ -597,23 +597,35 @@ let DOM_Module = (function (index) {
         return ul;
     }
 
-    let setupAllTodoProject = ( projectList ) => {
+    let setupAllTodoProject = (projectList) => {
+        addHeaderMargin();
         removeTodoFormButton();
-        updateRightHeader( 'All Todos' );
-        let allTodosContainer = right.firstElementChild.nextElementSibling; 
+        updateRightHeader('All Todos');
+        let allTodosContainer = right.firstElementChild.nextElementSibling;
         allTodosContainer.innerHTML = "";
-        for( let i = 0; i< projectList.length; i++){
-           let ul = nonEditableTodo( projectList[i].todoList);
-           allTodosContainer.appendChild( ul );
+        for (let i = 0; i < projectList.length; i++) {
+            let ul = nonEditableTodo(projectList[i].todoList);
+            allTodosContainer.appendChild(ul);
         }
     };
 
+    let removeHeaderMargin = () => {
+        let header = document.querySelector( '.rightSideHeader' ); 
+        header.classList.remove('noEditHeader');
+    };
+
+    let addHeaderMargin = () => {
+        let header = document.querySelector( '.rightSideHeader' ); 
+        header.classList.add('noEditHeader');
+    }
+
     return {
-        addProject, projectForm, removeProjectForm, 
+        addProject, projectForm, removeProjectForm,
         removeProject, updateRightSide,
         addTodoForm, removeTodoForm, removeTodoFormButton,
         updatePriorityMarker, updateTitle, updateDueDate,
         removeTodo, clearRightSide, setupAllTodoProject,
+        removeHeaderMargin, removeHeaderMargin
     };
 }
 )();

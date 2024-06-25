@@ -129,6 +129,8 @@ else {
         let project = document.querySelector( `.project._${newProjectIndex}` );
         
         project.addEventListener("click", (event) => {
+            domChanger.removeHeaderMargin();
+            domChanger.removeHeaderMargin();
             let type = event.target.nodeName;
             let target;
 
